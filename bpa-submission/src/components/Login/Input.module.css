@@ -1,0 +1,78 @@
+.wrapper {
+  width: 450px;
+}
+
+.wrapper .inputData {
+  height: 40px;
+  width: 100%;
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.wrapper .inputData input {
+  height: 100%;
+  width: 100%;
+  border: none;
+  font-size: 17px;
+  border-bottom: 2px solid silver;
+  padding: 0px;
+}
+
+.inputData input:focus ~ label,
+.inputData input:valid ~ label,
+.inputData input:not(:placeholder-shown) ~ label {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: black;
+  font-weight: 500;
+}
+.input {
+  font-size: 0.9rem;
+  padding: 0px;
+}
+.wrapper .inputData label {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  color: grey;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.inputData .underline {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  bottom: 0;
+}
+
+.inputData .underline:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 100%;
+  background: #f97316;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.inputData input:focus ~ .underline:before,
+.inputData input:valid ~ .underline:before {
+  transform: scaleX(1);
+}
+.input:focus-visible {
+  outline: none !important;
+}
+.m-6c018570 ~ label input:focus,
+.m-6c018570 ~ label input:valid,
+.m-6c018570 ~ label input:not(:placeholder-shown) {
+  transform: translateY(-20px);
+  font-size: 15px;
+  color: black;
+  font-weight: 500;
+}
+.Input_input__WxJIM {
+  color: red !important;
+  background-color: red !important;
+}

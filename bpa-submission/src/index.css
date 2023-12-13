@@ -1,0 +1,79 @@
+body {
+  --main-bg-color: #fdba74; /* Define a variable for the background color */
+  --accent-color: #f97316; /* Define a variable for an accent color */
+  --orange-color: #f59e0b;
+  --mantine-breakpoint-xs: 36em;
+  --mantine-breakpoint-sm: 48em;
+  --mantine-breakpoint-md: 62em;
+  --mantine-breakpoint-lg: 75em;
+  --mantine-breakpoint-xl: 88em;
+
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Poppins", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fff7ed !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #fff7ed;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #ffedd5;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #fed7aa;
+}
+html {
+  scroll-behavior: smooth;
+}
+.m-ccf8da4c {
+  border: none !important ;
+  border-radius: 0px !important;
+}
+.m-ccf8da4c .m-f2d85dd2 {
+  background-color: transparent !important;
+  font-family: "Poppins" !important;
+  color: black !important;
+  border-bottom: solid 5px #fdba74;
+  transition: border-bottom 0.7s;
+}
+
+.m-f2d85dd2:focus {
+  border-bottom: solid 5px #f59e0b;
+  border-radius: 0px !important;
+}
+.m-f2d85dd2::placeholder {
+  color: #64748b !important;
+  font-size: 0.9rem;
+}
+.passwordError .m-f2d85dd2 {
+  border-bottom: solid 5px #dc3545 !important;
+}
+
+.m-ccf8da4c {
+  background-color: transparent !important;
+}
+#mantine-ybw9qwbi3 {
+  border-bottom: none !important;
+  border: var(--bs-border-width) solid var(--bs-border-color) !important;
+  border-radius: var(--bs-border-radius) !important;
+}
+#mantine-ybw9qwb13 {
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}

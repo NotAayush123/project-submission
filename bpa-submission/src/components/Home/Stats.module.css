@@ -1,0 +1,109 @@
+:root {
+  --main-bg-color: #fdba74;
+  --accent-color: #f97316;
+}
+
+.root {
+  display: flex;
+  background-color: #fdba74;
+  padding: 24px;
+  border-radius: 15px;
+  margin-left: 25px;
+  margin-right: 25px;
+  box-shadow: 10px 10px 6px 6px rgba(0, 0, 0, 0.1) !important;
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+}
+
+.title {
+  color: #ffffff !important;
+  text-transform: uppercase !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+}
+
+.count {
+  color: #ffffff !important;
+  font-size: 32px !important;
+  line-height: 1 !important;
+  font-weight: 700 !important;
+  margin-bottom: 16px !important;
+}
+
+.description {
+  color: black !important;
+  font-size: 18px !important;
+  margin-top: 5px !important;
+  font-weight: 500 !important;
+}
+
+.stat {
+  flex: 1;
+
+  & + & {
+    padding-left: 24px;
+    margin-left: 24px;
+    border-left: 5px solid #f97316;
+
+    @media (max-width: 480px) {
+      padding-left: 0;
+      margin-left: 0;
+      border-left: 0;
+      padding-top: 24px;
+      margin-top: 24px;
+    }
+  }
+}
+@media (max-width: 480px) {
+  .stat {
+    border-bottom: 5px solid #f97316 !important;
+  }
+}
+.FAQ {
+  background-color: #fdba74;
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 999;
+}
+@media (max-width: 702px) {
+  .mb {
+    margin-bottom: 10vh;
+  }
+}
+@media (max-width: 380px) {
+  .mb {
+    margin-bottom: 25vh;
+  }
+}
+.reviews {
+  /* background-image: url("../../assets/bgwithsemicircle2.png"); */
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 999;
+}
+.timeEvent {
+  /* background-image: url("../../assets/bgwithsemicircle3.png"); */
+  background-size: cover;
+  background-attachment: fixed;
+  z-index: 999;
+  margin-top: 20px;
+}
+.mission {
+  margin-bottom: 15rem;
+}
+@media (max-width: 1560px) {
+  .mission {
+    margin-bottom: 30rem;
+  }
+}
+@media (max-width: 1100px) {
+  .mission {
+    margin-bottom: 25rem !important;
+  }
+}
+@media (max-width: 1280px) {
+  .mission {
+    margin-bottom: 45rem;
+  }
+}
