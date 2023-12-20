@@ -48,17 +48,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url("https://images.unsplash.com/photo-1644766464511-3b364cd8a6e8?auto=format&fit=crop&q=80&w=1932&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+  background-color: #fdba74;
+  background-image: url("../assets/bgwithsemicircle.png");
   background-size: cover;
   background-attachment: fixed;
 }
-.outside {
-  background-color: rgba(253, 186, 114, 0.8);
+
+.card {
+  background-color: rgba(249, 116, 21);
   border-radius: 15px;
-}
-.inside {
-  background-color: rgba(249, 116, 21, 0.8);
-  border-radius: 15px;
+  color: white;
+  padding: 15px;
 }
 @media (max-width: 768px) {
   .aboutInfo {

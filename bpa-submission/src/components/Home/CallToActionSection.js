@@ -18,7 +18,7 @@ const CallToActionSection = () => {
             <Button
               variant="primary"
               className={`${classes.control2} px-4 me-md-2`}
-              href="#"
+              href="/signup"
               role="button"
               size="lg"
             >

@@ -1,5 +1,5 @@
 .form .error {
-  border-bottom: solid #dc3545 5px !important;
+  border-bottom: solid #dc3545 3px !important;
   transition: border-bottom 0.7s;
 }
 
@@ -7,7 +7,6 @@
   margin-left: 10vh;
   display: flex;
   align-items: center;
-
   height: 100vh;
 }
 @media (max-width: 768px) {
@@ -32,28 +31,16 @@
 }
 
 .main {
-  /* overflow-y: hidden !important;0 */
   overflow-x: hidden !important;
 }
 
 .input {
-  width: 65%;
-  border: none !important;
   background-color: transparent !important;
-  border-radius: 0px !important;
-  border-bottom: solid #fdba74 5px !important;
   transition: border-bottom 0.7s;
+  outline: none;
+  width: 215% !important;
 }
-.input::placeholder {
-  color: #64748b;
-  font-size: 0.9rem;
-}
-.input:focus {
-  box-shadow: none;
-  border-bottom: solid #f59e0b 5px !important;
 
-  transition: border-bottom 0.7s;
-}
 .title {
   margin-bottom: 100px;
 }

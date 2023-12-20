@@ -31,7 +31,7 @@ const About = () => {
             >
               <div
                 style={{ width: "90%", height: "100%" }}
-                className={styles.outside}
+                className={styles.card}
               >
                 <img
                   src={Trust}
@@ -56,7 +56,7 @@ const About = () => {
             >
               <div
                 style={{ width: "90%", height: "100%" }}
-                className={styles.inside}
+                className={styles.card}
               >
                 <img src={Reliability} alt="" className="img-fluid" />
                 <h1 className="text-center">Reliability</h1>
@@ -75,7 +75,7 @@ const About = () => {
             >
               <div
                 style={{ width: "90%", height: "100%" }}
-                className={styles.outside}
+                className={styles.card}
               >
                 <img
                   src="https://res.cloudinary.com/zenbusiness/q_auto/v1/shared-assets/icon/product/money-bag-256.svg"

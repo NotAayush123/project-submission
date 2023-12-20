@@ -4,6 +4,7 @@ import useInput from "../../hooks/use-input";
 import classes from "./SignupForm.module.css";
 import { PasswordStrength } from "./PasswordInput";
 import { Button } from "@mantine/core";
+import InputComponent from "../Login/Input";
 const SignupForm = () => {
   const [passwordIsValid, setPasswordIsValid] = useState(false);
   const [passwordValue, setPasswordValue] = useState("");
@@ -72,26 +73,18 @@ const SignupForm = () => {
                 </span>
               </h1>
               <Form.Group className="mb-3" controlId="formName">
-                <Form.Label style={{ fontWeight: 500 }}>
-                  Full Name
-                  <span
-                    class="m-78a94662 mantine-InputWrapper-required mantine-PasswordInput-required"
-                    aria-hidden="true"
-                  >
-                    {" "}
-                    *
-                  </span>
-                </Form.Label>
-                <Form.Control
+                <InputComponent
                   type="text"
                   placeholder="Enter your full name"
                   required
                   value={enteredName}
                   onChange={nameChangedHandler}
                   onBlur={nameBlurHandler}
+                  label="Name"
                   className={`${nameInputHasError ? classes.error : ""} ${
                     classes.input
                   }`}
+                  mode="Signup"
                 />
                 {nameInputHasError && (
                   <p
@@ -103,19 +96,10 @@ const SignupForm = () => {
                 )}
               </Form.Group>
               <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label style={{ fontWeight: 500 }}>
-                  Email address
-                  <span
-                    class="m-78a94662 mantine-InputWrapper-required mantine-PasswordInput-required"
-                    aria-hidden="true"
-                  >
-                    {" "}
-                    *
-                  </span>
-                </Form.Label>
-                <Form.Control
+                <InputComponent
                   type="email"
                   placeholder="Enter email"
+                  label="Email"
                   required
                   onBlur={emailBlurHandler}
                   onChange={emailChangeHandler}
@@ -123,6 +107,7 @@ const SignupForm = () => {
                   className={`${emailhasError ? classes.error : ""}  ${
                     classes.input
                   }`}
+                  mode="Signup"
                 />
                 {emailhasError && (
                   <p
@@ -134,45 +119,29 @@ const SignupForm = () => {
                 )}
               </Form.Group>
               <Form.Group className={`mb-3`} controlId="formPassword">
-                <Form.Label style={{ fontWeight: 500 }}>
-                  Password
-                  <span
-                    class="m-78a94662 mantine-InputWrapper-required mantine-PasswordInput-required"
-                    aria-hidden="true"
-                  >
-                    {" "}
-                    *
-                  </span>
-                </Form.Label>
                 <PasswordStrength
                   onValidationChange={handlePasswordValidationChange}
                   isValid={!passwordIsValid}
+                  mode="Signup"
+                  type="Password"
                 />
               </Form.Group>
               <Form.Group
                 className={`mb-3 ${confirmPasswordHasError ? "error" : ""}`}
                 controlId="formConfirmPassword"
               >
-                <Form.Label style={{ fontWeight: 500 }}>
-                  Confirm Your Password
-                  <span
-                    class="m-78a94662 mantine-InputWrapper-required mantine-PasswordInput-required"
-                    aria-hidden="true"
-                  >
-                    {" "}
-                    *
-                  </span>
-                </Form.Label>
-                <Form.Control
+                <InputComponent
                   type="password"
                   placeholder="Confirm Password"
                   required
+                  label="Confirm Password"
                   value={enteredConfirmPassword}
                   onChange={passwordConfirmChangeHandler}
                   onBlur={passwordConfirmBlurHandler}
                   className={`${confirmPasswordHasError ? classes.error : ""} ${
                     classes.input
                   }`}
+                  mode="Signup"
                 />
                 {confirmPasswordHasError && (
                   <p
@@ -211,6 +180,9 @@ const SignupForm = () => {
             src="https://st3.depositphotos.com/5479794/15306/i/450/depositphotos_153064450-stock-photo-delivering-groceries-to-the-elderly.jpg"
             alt=""
             className={classes.image}
+            style={{
+              clipPath: "polygon(25% 0%, 100% 0%, 100% 99%, 0% 100%)",
+            }}
           />
         </Col>
       </Row>

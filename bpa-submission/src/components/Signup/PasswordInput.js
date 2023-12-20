@@ -1,15 +1,9 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Progress,
-  PasswordInput,
-  Group,
-  Text,
-  Center,
-} from "@mantine/core";
+import { Box, Progress, Group, Text, Center } from "@mantine/core";
 import { useInputState } from "@mantine/hooks";
 import { IconCheck, IconX } from "@tabler/icons-react";
 import classes from "./PasswordInput.module.css";
+import InputComponent from "../Login/Input";
 function PasswordRequirement({ meets, label }) {
   return (
     <Text color={meets ? "teal" : "red"} mt={5} size="sm">
@@ -81,19 +75,17 @@ export function PasswordStrength(props) {
   };
   return (
     <div>
-      <PasswordInput
+      <InputComponent
         value={value}
         onChange={setValue}
         placeholder="Enter your password"
         required
         className={`${classes.passwordInput} ${
-          props.isValid ? "passwordError" : ""
+          props.isValid ? `${classes.passwordError}` : ""
         }`}
         {...props}
-        style={{
-          width: "65%",
-        }}
         onBlur={passwordBlur}
+        label="Password"
       />
 
       <Group spacing={5} grow mt="xs" mb="md" className={classes.group}>

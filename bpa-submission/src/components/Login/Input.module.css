@@ -1,5 +1,5 @@
 .wrapper {
-  width: 450px;
+  width: 350px;
 }
 
 .wrapper .inputData {
@@ -16,6 +16,7 @@
   font-size: 17px;
   border-bottom: 2px solid silver;
   padding: 0px;
+  outline: none !important;
 }
 
 .inputData input:focus ~ label,
@@ -25,6 +26,7 @@
   font-size: 15px;
   color: black;
   font-weight: 500;
+  margin-bottom: 1px;
 }
 .input {
   font-size: 0.9rem;
@@ -64,15 +66,47 @@
 .input:focus-visible {
   outline: none !important;
 }
-.m-6c018570 ~ label input:focus,
-.m-6c018570 ~ label input:valid,
-.m-6c018570 ~ label input:not(:placeholder-shown) {
-  transform: translateY(-20px);
-  font-size: 15px;
-  color: black;
-  font-weight: 500;
+
+.inputData .underline2 {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  bottom: 0;
 }
-.Input_input__WxJIM {
-  color: red !important;
-  background-color: red !important;
+
+.inputData .underline2:before {
+  position: absolute;
+  content: "";
+  height: 100%;
+  width: 215%;
+  background: #f97316;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+@media (max-width: 1300px) {
+  .wrapper .inputData input {
+    width: 150% !important;
+  }
+  .wrapper .inputData input:focus {
+    width: 150% !important;
+  }
+  .inputData .underline2:before {
+    width: 150% !important;
+  }
+}
+.inputData input:focus ~ .underline2:before,
+.inputData input:valid ~ .underline2:before {
+  transform: scaleX(1);
+}
+@media (max-width: 950px) {
+  .wrapper .inputData input {
+    width: 100% !important;
+  }
+  .wrapper .inputData input:focus {
+    width: 100% !important;
+  }
+  .inputData .underline2:before {
+    width: 100% !important;
+  }
 }

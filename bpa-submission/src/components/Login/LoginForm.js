@@ -1,5 +1,4 @@
 import {
-  PasswordInput,
   Checkbox,
   Anchor,
   Paper,
@@ -25,10 +24,10 @@ export default function LoginForm() {
     valueChangeHandler: emailChangeHandler,
   } = useInput(validateEmail);
   return (
-    <div className={classes.bg}>
+    <div>
       <Container size={1500} my={40} className={classes.container}>
         <Title ta="center" className={classes.title}>
-          Welcome back to <span style={{ color: "#fdba74" }}>Alcona!</span>
+          Welcome back to <span style={{ color: "#0ea5e9" }}>Alcona!</span>
         </Title>
         <Text
           c="dimmed"
@@ -65,6 +64,7 @@ export default function LoginForm() {
               onBlur={emailBlurHandler}
               onChange={emailChangeHandler}
               value={enteredEmail}
+              className={emailhasError ? classes.error : ""}
             />
 
             {emailhasError && (
@@ -86,9 +86,6 @@ export default function LoginForm() {
           />
           <Group justify="space-between" mt="lg">
             <Checkbox label="Remember me" />
-            <Anchor component="button" size="sm">
-              Forgot password?
-            </Anchor>
           </Group>
           <Button fullWidth mt="xl" className={classes.logIn} disabled>
             Log in
