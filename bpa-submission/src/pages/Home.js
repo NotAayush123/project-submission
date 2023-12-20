@@ -3,19 +3,16 @@ import { Footer } from "../components/Footer";
 import HomeHero from "../components/Home/HomeHero";
 import Mission from "../components/Home/Mission";
 import { Reviews } from "../components/Home/Reviews";
-
 import { Stats } from "../components/Home/Stats";
 import TimeEvent from "../components/Home/Timeline";
 import Reminder from "../components/Home/Reminder";
 import classes from "../components/Home/Stats.module.css";
-import Chatbot from "../components/Chatbot";
 import CallToActionSection from "../components/Home/CallToActionSection";
 import Organizations from "../components/Home/Organizations";
 export default function Home() {
   return (
     <div style={{ overflowX: "hidden" }}>
       <Reminder />
-      <Chatbot />
       <HomeHero />
       <Stats />
       <div className={classes.mission}>
