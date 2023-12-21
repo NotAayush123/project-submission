@@ -39,7 +39,7 @@ function getStrength(password) {
 }
 
 export function PasswordStrength(props) {
-  const [value, setValue] = useInputState(""); // Initialize with props.password if available
+  const [value, setValue] = useInputState("");
   const [blur, setBlur] = useState();
   const strength = getStrength(value);
   const checks = requirements.map((requirement, index) => (

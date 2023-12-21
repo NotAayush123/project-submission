@@ -7,6 +7,7 @@ import "@mantine/core/styles.css";
 import Signup from "./pages/Signup";
 import About from "./pages/About";
 import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);
 function App() {

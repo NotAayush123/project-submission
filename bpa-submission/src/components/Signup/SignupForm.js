@@ -5,9 +5,14 @@ import classes from "./SignupForm.module.css";
 import { PasswordStrength } from "./PasswordInput";
 import { Button } from "@mantine/core";
 import InputComponent from "../Login/Input";
+import AlertComponent from "../Alert";
+import bcrypt from "bcryptjs";
+import { useNavigate } from "react-router-dom";
 const SignupForm = () => {
   const [passwordIsValid, setPasswordIsValid] = useState(false);
   const [passwordValue, setPasswordValue] = useState("");
+  const [error, setError] = useState();
+  const [emailUsed, setEmailUsed] = useState(false);
   const {
     value: enteredName,
     isValid: nameIsValid,
@@ -55,16 +60,93 @@ const SignupForm = () => {
       setPasswordValue(value); // Set the password value in the state
     }
   };
+  const navigate = useNavigate();
+  const submitFunction = async (event) => {
+    event.preventDefault();
+    const data = {
+      name: enteredName,
+      email: enteredEmail,
+      password: passwordValue,
+      confirmPassword: enteredConfirmPassword,
+    };
+    console.log(data);
+    console.log(formIsValid);
+    if (
+      data.name === "" ||
+      data.email === "" ||
+      data.password === "" ||
+      data.confirmPassword === "" ||
+      data.password !== data.confirmPassword
+    ) {
+      setError(true);
+    } else if (formIsValid === false) {
+      setError(true);
+    } else {
+      await hashPasswordAndCreateAccount(data);
+    }
+  };
+  const hashPasswordAndCreateAccount = async (data) => {
+    try {
+      const saltRounds = 10;
+
+      const hashedPassword = await bcrypt.hash(data.password, saltRounds);
+
+      const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Check if any user has the same email
+      const emailExists = existingUsers.some(
+        (user) => user.email === data.email
+      );
+
+      if (emailExists) {
+        console.log("Email already exists");
+        setEmailUsed(true);
+        return;
+      }
+
+      const updatedUsers = [
+        ...existingUsers,
+        { name: data.name, email: data.email, password: hashedPassword },
+      ];
+
+      localStorage.setItem("users", JSON.stringify(updatedUsers));
+      localStorage.setItem("signedIn", true);
+      localStorage.setItem(
+        "currentUser",
+        JSON.stringify({
+          name: data.name,
+          email: data.email,
+        })
+      );
+
+      navigate("/dashboard");
+      window.location.reload();
+    } catch (error) {
+      setError(true);
+      console.error("Error hashing password:", error);
+    }
+  };
 
   return (
     <div className={classes.main}>
+      {error ? (
+        <AlertComponent
+          message="Something went wrong with your submission!"
+          title="Error"
+          close={() => {
+            setError(false);
+          }}
+        />
+      ) : (
+        " "
+      )}
       <Row>
         <Col
           xs={12}
           md={8}
           className="d-xs-flex justify-content-xs-center align-items-xs-center align-items-xs-start"
         >
-          <Form className={classes.form}>
+          <Form className={classes.form} onSubmit={submitFunction}>
             <Container>
               <h1 className={classes.title}>
                 Signup for{" "}
@@ -115,6 +197,14 @@ const SignupForm = () => {
                     style={{ fontWeight: "500" }}
                   >
                     Invalid email address!
+                  </p>
+                )}
+                {emailUsed && (
+                  <p
+                    className="text-danger mt-2 mx-2"
+                    style={{ fontWeight: "500" }}
+                  >
+                    Already taken!
                   </p>
                 )}
               </Form.Group>
