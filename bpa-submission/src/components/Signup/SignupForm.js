@@ -51,8 +51,6 @@ const SignupForm = () => {
     formIsValid = true;
   }
   const handlePasswordValidationChange = (isValid, value) => {
-    console.log(isValid);
-    console.log(value);
     if (isValid === undefined) {
       setPasswordIsValid(true);
     } else {
@@ -69,8 +67,7 @@ const SignupForm = () => {
       password: passwordValue,
       confirmPassword: enteredConfirmPassword,
     };
-    console.log(data);
-    console.log(formIsValid);
+
     if (
       data.name === "" ||
       data.email === "" ||

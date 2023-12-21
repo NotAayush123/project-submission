@@ -56,8 +56,11 @@ export default function LoginForm() {
     if (data.email === "" || data.password === "") {
       setError(true);
     }
-    const stringusers = localStorage.getItem("users");
 
+    const stringusers = localStorage.getItem("users");
+    if (!stringusers) {
+      setUserExists(true);
+    }
     const users = JSON.parse(stringusers);
 
     const foundUser = users.find((user) => {
