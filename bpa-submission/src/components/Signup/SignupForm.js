@@ -101,9 +101,19 @@ const SignupForm = () => {
         return;
       }
 
+      // Generate a simple unique ID using a timestamp and random string
+      const userId =
+        Date.now().toString(36) + Math.random().toString(36).substr(2);
+
       const updatedUsers = [
         ...existingUsers,
-        { name: data.name, email: data.email, password: hashedPassword },
+        {
+          id: userId,
+          name: data.name,
+          email: data.email,
+          password: hashedPassword,
+          img: "",
+        },
       ];
 
       localStorage.setItem("users", JSON.stringify(updatedUsers));
@@ -111,8 +121,10 @@ const SignupForm = () => {
       localStorage.setItem(
         "currentUser",
         JSON.stringify({
+          id: userId,
           name: data.name,
           email: data.email,
+          img: "",
         })
       );
 

@@ -1,0 +1,20 @@
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  border: 1px solid #dee2e6;
+  padding: var(--mantine-spacing-sm) var(--mantine-spacing-xl);
+  background-color: white;
+  margin-bottom: 10px;
+}
+.strike p {
+  text-decoration: line-through;
+}
+.remove {
+  transform: translateX(-150%);
+  transition: all 1s;
+}
+.done {
+  display: none;
+}

@@ -1,13 +1,4 @@
-import {
-  Checkbox,
-  Anchor,
-  Paper,
-  Title,
-  Text,
-  Container,
-  Group,
-  Button,
-} from "@mantine/core";
+import { Paper, Title, Text, Container, Button } from "@mantine/core";
 import classes from "./LoginForm.module.css";
 import { Form } from "react-bootstrap";
 import useInput from "../../hooks/use-input";
@@ -31,7 +22,7 @@ export default function LoginForm() {
     } else if (passwordValue === "") {
       setPasswordIsValid(false);
     }
-  });
+  }, [passwordValue]);
   const {
     value: enteredEmail,
     isValid: emailIsValid,
@@ -42,6 +33,9 @@ export default function LoginForm() {
   const passwordChange = (event) => {
     setPasswordValue(event.target.value);
   };
+  console.log(passwordIsValid);
+  console.log(passwordValue);
+  console.log(emailIsValid);
   const formIsValid = passwordIsValid && emailIsValid;
   const formSumbit = (event) => {
     event.preventDefault();
@@ -85,12 +79,14 @@ export default function LoginForm() {
             JSON.stringify({
               name: foundUser.name,
               email: foundUser.email,
+              id: foundUser.id,
+              img: foundUser.img,
             })
           );
           navigate("/dashboard");
         } else {
           console.log("Login failed");
-          setError(true);
+          setUserExists(true);
         }
       });
     }
@@ -110,7 +106,7 @@ export default function LoginForm() {
       )}
       {userExists ? (
         <AlertComponent
-          message="Incorrect combination!"
+          message="Incorrect combination! (Case matters!)"
           title="Error"
           close={() => {
             setError(false);
@@ -160,6 +156,7 @@ export default function LoginForm() {
                 onChange={emailChangeHandler}
                 value={enteredEmail}
                 className={emailhasError ? classes.error : ""}
+                login={true}
               />
 
               {emailhasError && (

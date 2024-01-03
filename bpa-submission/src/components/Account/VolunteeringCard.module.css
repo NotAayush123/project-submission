@@ -1,0 +1,16 @@
+.card {
+  position: relative;
+  overflow: visible;
+  padding: 2rem;
+  padding-top: calc(2rem * 1.5 + 20px);
+}
+
+.icon {
+  position: absolute;
+  top: -20px;
+  left: calc(50% - 30px);
+}
+
+.title {
+  line-height: 1;
+}

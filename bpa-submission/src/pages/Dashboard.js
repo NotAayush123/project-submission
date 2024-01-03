@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Loader } from "@mantine/core";
+import Loading from "../components/Loading";
 const Dashboard = () => {
   const navigate = useNavigate();
   const signedIn = localStorage.getItem("signedIn");
@@ -13,10 +13,14 @@ const Dashboard = () => {
   }, [signedIn, navigate]);
 
   if (signedIn) {
-    return <div>Dashboard</div>;
+    return (
+      <div style={{ height: "900vh" }}>
+        <h1>Dashboard</h1>
+      </div>
+    );
   }
 
-  return <Loader color="orange" size="xl" type="dots" />;
+  return <Loading />;
 };
 
 export default Dashboard;

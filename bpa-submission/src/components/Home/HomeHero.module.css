@@ -83,10 +83,10 @@
   border: 2px solid #0284c7;
 }
 .control::after {
-  content: " >";
+  content: "";
 }
 .control:hover:after {
-  content: " ->";
+  content: " >";
 }
 .root {
   background: rgb(253, 186, 116);
@@ -144,5 +144,10 @@
   .root {
     height: 70vh;
     overflow-x: hidden;
+  }
+}
+@media (max-height: 700px) {
+  .wrapper {
+    margin-bottom: 20vh;
   }
 }

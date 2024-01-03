@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Mission.module.css";
-import MissionSection from "../../assets/Mission.png";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
 const Mission = () => {
   const [animate, setAnimate] = useState(false);
 
