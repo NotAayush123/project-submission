@@ -1,6 +1,7 @@
 .root {
-  padding-top: rem(80px);
   padding-bottom: rem(80px);
+  background-color: white;
+  height: 100vh;
 }
 
 .label {
@@ -10,7 +11,7 @@
   line-height: 1;
   margin-bottom: calc(1.5 * var(--mantine-spacing-xl));
   color: #94a3b8;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   @media (max-width: $mantine-breakpoint-sm) {
     font-size: rem(32px);
   }

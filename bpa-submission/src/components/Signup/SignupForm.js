@@ -113,6 +113,7 @@ const SignupForm = () => {
           email: data.email,
           password: hashedPassword,
           img: "",
+          description: "",
         },
       ];
 
@@ -125,6 +126,7 @@ const SignupForm = () => {
           name: data.name,
           email: data.email,
           img: "",
+          description: "",
         })
       );
 

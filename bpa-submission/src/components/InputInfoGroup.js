@@ -34,7 +34,7 @@ export default function InputInfoGroup({ label }) {
       setDefaultValue(value);
       localStorage.setItem("currentUser", JSON.stringify(updatedUser));
       const usersArray = JSON.parse(localStorage.getItem("users"));
-      console.log(usersArray);
+
       const updatedUsersArray = usersArray.map((u) =>
         u.id === updatedUser.id ? { ...u, name: value } : u
       );
@@ -43,7 +43,7 @@ export default function InputInfoGroup({ label }) {
     } else if (value !== "" && label === "Email") {
       const usersArray = JSON.parse(localStorage.getItem("users"));
       const duplicateValue = usersArray.find((u) => u.email === value);
-      console.log(duplicateValue);
+
       if (!duplicateValue) {
         const updatedUser = { ...user, email: value };
         setDefaultValue(value);

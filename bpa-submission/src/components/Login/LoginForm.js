@@ -81,6 +81,7 @@ export default function LoginForm() {
               email: foundUser.email,
               id: foundUser.id,
               img: foundUser.img,
+              description: foundUser.description,
             })
           );
           navigate("/dashboard");

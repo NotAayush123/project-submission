@@ -1,10 +1,10 @@
-import { Title, Text, Button, Container, Group } from "@mantine/core";
+import { Title, Text, Button, Group } from "@mantine/core";
 import classes from "./404page.module.css";
 import { useNavigate } from "react-router-dom";
 const ErrorPage = () => {
   const navigate = useNavigate();
   return (
-    <Container className={`${classes.root} mb-5`}>
+    <div className={`${classes.root} mb-5`}>
       <div className={classes.label}>404</div>
       <Title className={classes.title}>You have found a secret place.</Title>
       <Text c="dimmed" size="lg" ta="center" className={classes.description}>
@@ -22,7 +22,7 @@ const ErrorPage = () => {
           Take me back to home page
         </Button>
       </Group>
-    </Container>
+    </div>
   );
 };
 
