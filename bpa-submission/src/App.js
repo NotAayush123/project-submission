@@ -12,6 +12,7 @@ import DashboardNavbar from "./components/Dashboard/DashboardNavbar";
 import ErrorPage from "./pages/404page";
 import Account from "./pages/Account";
 import Settings from "./pages/Settings";
+import Events from "./components/Events";
 
 const router = createBrowserRouter([
   {
@@ -44,13 +45,15 @@ const router = createBrowserRouter([
       { index: true, element: <Dashboard /> },
       { path: "account", element: <Account /> },
       { path: "settings", element: <Settings /> },
+      { path: "events", element: <Events /> },
     ],
   },
 ]);
+
 function App() {
   return (
     <>
-      <MantineProvider>
+      <MantineProvider inherit theme={{ colorScheme: "light" }}>
         {" "}
         <RouterProvider router={router} />
       </MantineProvider>

@@ -21,6 +21,12 @@ export function DropzoneButton(props) {
             const user = JSON.parse(localStorage.getItem("currentUser"));
             const newUser = { ...user, img: `${imageUrl}` };
             localStorage.setItem("currentUser", JSON.stringify(newUser));
+            const id = user.id;
+            const users = JSON.parse(localStorage.getItem("users"));
+            const updatedUsersArray = users.map((u) =>
+              u.id === id ? { ...u, img: `${imageUrl}` } : u
+            );
+            localStorage.setItem("users", JSON.stringify(updatedUsersArray));
             window.location.reload();
           }}
         >

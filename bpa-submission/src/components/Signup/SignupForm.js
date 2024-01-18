@@ -127,6 +127,7 @@ const SignupForm = () => {
           email: data.email,
           img: "",
           description: "",
+          date: new Date(),
         })
       );
 

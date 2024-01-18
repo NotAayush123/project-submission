@@ -82,6 +82,7 @@ export default function LoginForm() {
               id: foundUser.id,
               img: foundUser.img,
               description: foundUser.description,
+              date: new Date(),
             })
           );
           navigate("/dashboard");
