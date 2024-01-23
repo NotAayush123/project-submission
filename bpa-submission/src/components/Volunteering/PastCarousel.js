@@ -6,6 +6,7 @@ import { VolunteeringCard } from "./Card";
 export function PastCarousel({ pastEvents }) {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const empty = pastEvents.length === 0;
   const slides = pastEvents.map((item) => (
     <Carousel.Slide key={item.title}>
       <VolunteeringCard {...item} />
@@ -13,14 +14,18 @@ export function PastCarousel({ pastEvents }) {
   ));
 
   return (
-    <Carousel
-      slideSize={{ sm: "33%" }}
-      slideGap={{ base: rem(2), sm: "xl" }}
-      align="start"
-      slidesToScroll={mobile ? 1 : 2}
-      loop
-    >
-      {slides}
-    </Carousel>
+    <>
+      {!empty && (
+        <Carousel
+          slideSize={{ sm: "33%" }}
+          slideGap={{ base: rem(2), sm: "xl" }}
+          align="start"
+          slidesToScroll={mobile ? 1 : 2}
+          loop
+        >
+          {slides}
+        </Carousel>
+      )}
+    </>
   );
 }
