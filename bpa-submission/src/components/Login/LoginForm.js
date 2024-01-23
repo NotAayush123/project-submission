@@ -82,6 +82,7 @@ export default function LoginForm() {
               id: foundUser.id,
               img: foundUser.img,
               description: foundUser.description,
+              signedEvents: foundUser.signedEvents,
               date: new Date(),
             })
           );

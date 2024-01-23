@@ -8,10 +8,9 @@ import logo from "../assets/volunteering.png";
 import classes from "./Footer.module.css";
 
 const links = [
-  { link: "#", label: "Privacy" },
+  { link: "/privacy", label: "Privacy" },
   { link: "/about", label: "About Us" },
   { link: "#", label: "TOS and Rules" },
-  { link: "#", label: "Contact Us" },
 ];
 
 export function Footer() {
@@ -38,19 +37,40 @@ export function Footer() {
         <Group className={classes.links}>{items}</Group>
 
         <Group gap="xs" justify="flex-end" wrap="nowrap">
-          <ActionIcon size="lg" variant="default" radius="xl">
+          <ActionIcon
+            size="lg"
+            variant="default"
+            radius="xl"
+            onClick={() => {
+              window.location.href = "https://twitter.com/AlconaBPA";
+            }}
+          >
             <IconBrandTwitter
               style={{ width: rem(18), height: rem(18) }}
               stroke={1.5}
             />
           </ActionIcon>
-          <ActionIcon size="lg" variant="default" radius="xl">
+          <ActionIcon
+            size="lg"
+            variant="default"
+            radius="xl"
+            onClick={() => {
+              window.location.href = "https://youtube.com/@alconabpa";
+            }}
+          >
             <IconBrandYoutube
               style={{ width: rem(18), height: rem(18) }}
               stroke={1.5}
             />
           </ActionIcon>
-          <ActionIcon size="lg" variant="default" radius="xl">
+          <ActionIcon
+            size="lg"
+            variant="default"
+            radius="xl"
+            onClick={() => {
+              window.location.href = "https://www.instagram.com/alconabpa123";
+            }}
+          >
             <IconBrandInstagram
               style={{ width: rem(18), height: rem(18) }}
               stroke={1.5}

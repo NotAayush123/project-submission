@@ -10,17 +10,10 @@ import {
 } from "@mantine/core";
 
 import classes from "./Card.module.css";
+import { useNavigate } from "react-router-dom";
 
-export function VolunteeringCard({
-  name,
-  maxSpots,
-  time,
-  image,
-  volunteers,
-  day,
-}) {
-  console.log(volunteers);
-  const avatars = volunteers.map((volunteer) => {
+export function VolunteeringCard(item, volunteer) {
+  const avatars = item.volunteers.map((volunteer) => {
     return (
       <>
         <Tooltip label={volunteer.name} withArrow>
@@ -29,12 +22,13 @@ export function VolunteeringCard({
       </>
     );
   });
-  console.log(avatars);
+  const navigate = useNavigate();
+
   return (
     <Card withBorder radius="md" className={classes.card}>
       <Card.Section className={classes.imageSection}>
         <Image
-          src={image}
+          src={item.image}
           alt="Tesla Model S"
           style={{ width: "100%", height: "250px" }}
         />
@@ -42,9 +36,9 @@ export function VolunteeringCard({
 
       <Group justify="space-between" mt="md">
         <div>
-          <Text fw={500}>{name}</Text>
+          <Text fw={500}>{item.name || item.eventName}</Text>
           <Text fz="xs" c="dimmed">
-            {day} - {time}
+            {item.day} - {item.time}
           </Text>
         </div>
 
@@ -55,12 +49,48 @@ export function VolunteeringCard({
         <Group gap={30}>
           <div>
             <Text fz="xl" fw={700} style={{ lineHeight: 1 }}>
-              {volunteers.length}/{maxSpots} people
+              {item.volunteers.length}/{item.maxSpots} people
             </Text>
           </div>
 
-          <Button radius="xl" style={{ flex: 1 }} color="orange">
-            Sign up
+          <Button
+            radius="xl"
+            style={{ flex: 1 }}
+            color="orange"
+            onClick={() => {
+              let queryParams = `name=${encodeURIComponent(
+                item.name
+              )}&organization=${encodeURIComponent(
+                item.organization
+              )}&image=${encodeURIComponent(
+                item.image
+              )}&maxSpots=${encodeURIComponent(
+                item.maxSpots
+              )}&address=${encodeURIComponent(
+                item.address
+              )}&time=${encodeURIComponent(item.time)}&day=${encodeURIComponent(
+                item.day
+              )}&usersTask=${encodeURIComponent(
+                item.usersTask
+              )}&contactPhone=${encodeURIComponent(
+                item.contactPhone
+              )}&signed=${encodeURIComponent(
+                item.signed
+              )}&contactEmail=${encodeURIComponent(item.contactEmail)}`;
+
+              // Add volunteer details to queryParams
+              item.volunteers.forEach((volunteer, index) => {
+                queryParams += `&volunteer${index + 1}Name=${encodeURIComponent(
+                  volunteer.name
+                )}&volunteer${index + 1}ProfilePicture=${encodeURIComponent(
+                  volunteer.profilePicture
+                )}`;
+              });
+
+              navigate(`/dashboard/detail?${queryParams}`);
+            }}
+          >
+            View details
           </Button>
         </Group>
       </Card.Section>

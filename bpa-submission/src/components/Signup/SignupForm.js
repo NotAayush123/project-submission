@@ -114,6 +114,7 @@ const SignupForm = () => {
           password: hashedPassword,
           img: "",
           description: "",
+          signedEvents: [],
         },
       ];
 
@@ -128,6 +129,7 @@ const SignupForm = () => {
           img: "",
           description: "",
           date: new Date(),
+          signedEvents: [],
         })
       );
 

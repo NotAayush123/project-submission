@@ -1,0 +1,22 @@
+.image {
+  border-radius: 15px;
+  margin-top: 20px;
+  width: 55%;
+}
+.imgContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sign {
+  position: fixed;
+  bottom: 5px;
+  right: 2px;
+  width: 95%;
+}
+.overlay {
+  position: fixed;
+  bottom: 5px;
+  right: 2px;
+  width: 95%;
+}

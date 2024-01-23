@@ -13,6 +13,8 @@ import ErrorPage from "./pages/404page";
 import Account from "./pages/Account";
 import Settings from "./pages/Settings";
 import Events from "./components/Events";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import EventDetail from "./pages/EventDetail";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/privacy",
+        element: <PrivacyPolicy />,
       },
     ],
   },
@@ -45,7 +51,14 @@ const router = createBrowserRouter([
       { index: true, element: <Dashboard /> },
       { path: "account", element: <Account /> },
       { path: "settings", element: <Settings /> },
-      { path: "events", element: <Events /> },
+      {
+        path: "events",
+        element: <Events />,
+      },
+      {
+        path: "detail",
+        element: <EventDetail />,
+      },
     ],
   },
 ]);

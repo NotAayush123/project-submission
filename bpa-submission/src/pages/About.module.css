@@ -74,3 +74,9 @@
     height: 250vh;
   }
 }
+.container {
+  background-image: url("../assets/bgwithsemicircle2.png");
+  background-size: cover;
+  background-attachment: fixed;
+  height: 150vh;
+}

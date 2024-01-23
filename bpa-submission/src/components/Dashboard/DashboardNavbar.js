@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tooltip, UnstyledButton, Stack, rem, Avatar } from "@mantine/core";
 import {
   IconHome2,
@@ -21,7 +21,12 @@ function NavbarLink({
   const user = JSON.parse(localStorage.getItem("currentUser"));
   const navigate = useNavigate();
   return (
-    <Tooltip label={label} position="right" transitionProps={{ duration: 0 }}>
+    <Tooltip
+      label={label}
+      position="right"
+      transitionProps={{ duration: 0 }}
+      style={{ zIndex: "999999" }}
+    >
       <UnstyledButton
         onClick={() => {
           if (!logout) {
@@ -65,25 +70,35 @@ export default function DashboardNavbar() {
       onClick={() => setActive(index)}
     />
   ));
+  const navigate = useNavigate();
+  const signedIn = localStorage.getItem("signedIn");
 
-  return (
-    <div className={classes.content}>
-      <div className={classes.navbarContainer}>
-        <nav className={classes.navbar}>
-          <div className={classes.navbarMain}>
+  useEffect(() => {
+    if (!signedIn) {
+      console.log("User not signed in, redirecting to /signup");
+      navigate("/signup");
+    }
+  }, [signedIn, navigate]);
+  if (signedIn) {
+    return (
+      <div className={classes.content}>
+        <div className={classes.navbarContainer}>
+          <nav className={classes.navbar}>
+            <div className={classes.navbarMain}>
+              <Stack justify="center" gap={0}>
+                {links}
+              </Stack>
+            </div>
+
             <Stack justify="center" gap={0}>
-              {links}
+              <NavbarLink icon={IconLogout} label="Logout" logout={true} />
             </Stack>
-          </div>
-
-          <Stack justify="center" gap={0}>
-            <NavbarLink icon={IconLogout} label="Logout" logout={true} />
-          </Stack>
-        </nav>
+          </nav>
+        </div>
+        <div className={classes.outletcontent}>
+          <Outlet />
+        </div>
       </div>
-      <div className={classes.outletcontent}>
-        <Outlet />
-      </div>
-    </div>
-  );
+    );
+  }
 }
