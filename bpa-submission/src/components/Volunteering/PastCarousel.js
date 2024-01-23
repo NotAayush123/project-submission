@@ -3,10 +3,10 @@ import { useMediaQuery } from "@mantine/hooks";
 import { useMantineTheme, rem } from "@mantine/core";
 import { VolunteeringCard } from "./Card";
 
-export function PastCarousel({ pastEvents }) {
+export function PastCarousel({ pastEvents, empty }) {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-  const empty = pastEvents.length === 0;
+
   const slides = pastEvents.map((item) => (
     <Carousel.Slide key={item.title}>
       <VolunteeringCard {...item} />

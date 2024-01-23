@@ -22,7 +22,7 @@ const Dashboard = () => {
     ", " +
     new Date(user.date).toLocaleDateString("en-US", { weekday: "long" });
   const pastEvents = user.signedEvents;
-  console.log(pastEvents);
+  const empty = pastEvents.length === 0;
   if (signedIn) {
     return (
       <div style={{ marginLeft: "2rem" }}>
@@ -38,10 +38,12 @@ const Dashboard = () => {
             username={user.name}
             profile={user.img}
           />
-          <h4 className="mt-3" style={{ color: "#f97316" }}>
-            Past Events
-          </h4>
-          <PastCarousel pastEvents={pastEvents} />
+          {!empty && (
+            <h4 className="mt-3" style={{ color: "#f97316" }}>
+              Signed Up Events
+            </h4>
+          )}
+          <PastCarousel pastEvents={pastEvents} empty={empty} />
         </div>
       </div>
     );
