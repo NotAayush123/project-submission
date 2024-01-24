@@ -117,7 +117,8 @@ const SignupForm = () => {
           signedEvents: [],
         },
       ];
-
+      console.log(hashedPassword);
+      console.log(updatedUsers);
       localStorage.setItem("users", JSON.stringify(updatedUsers));
       localStorage.setItem("signedIn", true);
       localStorage.setItem(

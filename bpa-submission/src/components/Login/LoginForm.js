@@ -58,6 +58,7 @@ export default function LoginForm() {
     const foundUser = users.find((user) => {
       return user.email === data.email;
     });
+    console.log(foundUser);
     if (!foundUser) {
       setUserExists(true);
     }
@@ -67,7 +68,6 @@ export default function LoginForm() {
         if (err) {
           console.error("Error comparing passwords:", err);
           setUserExists(true);
-          return;
         }
 
         if (result) {

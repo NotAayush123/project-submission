@@ -83,6 +83,6 @@ html {
 
 @media (max-width: 450px) {
   .DashboardNavbar_navbar__fdiss {
-    z-index: 999 !important;
+    z-index: 999999999 !important;
   }
 }
