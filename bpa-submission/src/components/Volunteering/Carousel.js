@@ -31,7 +31,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
   let data = [
     {
       name: "Volunteer At DOJ Community Giveaway",
-      organization: "Charity Crossing Inc",
+      organization: "Charity Crossing",
       image:
         "https://www.usnews.com/object/image/00000181-6df1-dc48-a7c9-eff563fa0000/gettyimages-1337880968.jpg?update-time=1655407011171&size=responsive640",
       maxSpots: 7,
@@ -247,7 +247,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
     },
     {
       name: "NEWARK Afternoon Greenhouse/Farm Event",
-      organization: "Food Bank of America",
+      organization: "Food Bank of Delaware",
       image:
         "https://www.fbd.org/wp-content/uploads/2021/08/IMG_5673-480x480.jpg",
       maxSpots: 12,
@@ -277,7 +277,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
 
     {
       name: "NEWARK Healthy Pantry (Evening)",
-      organization: "Food Bank of America",
+      organization: "Food Bank of Delaware",
       image:
         "https://ewscripps.brightspotcdn.com/dims4/default/f28ccb9/2147483647/strip/true/crop/1920x1080+0+180/resize/1280x720!/quality/90/?url=http%3A%2F%2Fewscripps-brightspot.s3.amazonaws.com%2Fdf%2Fe4%2Fb3795b524a418e424b84fb114ed0%2Fchurch-food-giveaway.jpg",
       maxSpots: 9,
@@ -307,7 +307,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
 
     {
       name: "MILFORD Volunteer Room (Morning)",
-      organization: "Food Bank of America",
+      organization: "Food Bank of Delaware",
       image:
         "https://www.delawareonline.com/gcdn/authoring/authoring-images/2023/11/10/PWIL/71537486007-p-01-food-bank-20231110.jpg?crop=3399,1912,x0,y177&width=1280&height=720&format=pjpg&auto=webp",
       maxSpots: 20,
@@ -337,7 +337,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
 
     {
       name: "MILFORD Healthy Pantry (Morning)",
-      organization: "Food Bank of America",
+      organization: "Food Bank of Delaware",
       image:
         "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ellis_loads_food_from_the_Houston_Food_Bank_during_a_giveaway_for_people_suffering_during_the_COVID_19_pandemic.jpg",
       maxSpots: 6,
@@ -365,7 +365,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
 
     {
       name: "WILMINGTON Mobile Pantry at Kingswood CC",
-      organization: "Food Bank of America",
+      organization: "Food Bank of Delaware",
       image:
         "https://www.foodbankrockies.org/wp-content/uploads/2021/05/Broncos_Dist-40-1024x683.jpg",
       maxSpots: 5,
@@ -391,7 +391,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
 
     {
       name: "NEWARK Volunteer Room (Morning)",
-      organization: "Food Bank of America",
+      organization: "Food Bank of Delaware",
       image:
         "https://www.fbd.org/wp-content/uploads/2021/08/1Q9A0929-480x480.jpg",
       maxSpots: 16,

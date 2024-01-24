@@ -65,7 +65,7 @@ const EventDetail = () => {
   if (organization === "Charity Crossing") {
     charityUrl =
       "https://charitycrossing.org/wp-content/uploads/2019/11/WhatsApp-Image-2019-04-20-at-11.11.20-AM.jpeg";
-  } else if (organization === "Food Bank Of Delaware") {
+  } else if (organization === "Food Bank of Delaware") {
     charityUrl =
       "https://www.fbd.org/wp-content/uploads/2021/01/My-Post-89-1280x960.png";
   } else if (organization === "Delmarva Red Cross") {
@@ -101,10 +101,7 @@ const EventDetail = () => {
         p="xs"
         style={{ display: "flex", alignItems: "center" }}
       >
-        <Avatar
-          src="https://www.fbd.org/wp-content/uploads/2021/01/My-Post-89-1280x960.png"
-          display="inline-block"
-        />
+        <Avatar src={charityUrl} display="inline-block" />
         <p
           style={{ marginLeft: "10px", marginTop: "10px", fontSize: "1.2rem" }}
         >
