@@ -563,7 +563,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
       obj2.volunteers.push({ name: username, profilePicture: profile });
     }
   });
-  console.log(data);
+
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   const slides = data.map((item) => (

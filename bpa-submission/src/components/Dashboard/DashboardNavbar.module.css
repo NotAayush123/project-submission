@@ -62,3 +62,24 @@
   width: 95vw;
   margin-left: 30px;
 }
+.menuButton {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(#fff, #fff, #fff, 0.3);
+  z-index: 999999999 !important;
+}
+.close {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (max-width: 480px) {
+  .outletcontent {
+    margin-left: 0;
+  }
+}
+.main {
+  z-index: 999999999 !important;
+}

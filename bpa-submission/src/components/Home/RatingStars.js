@@ -1,10 +1,9 @@
 import React from "react";
 
 const RatingStars = ({ rating }) => {
-  console.log(rating);
   const fullStars = Math.floor(rating);
   const halfStar = rating % 1 >= 0.5;
-  console.log(fullStars);
+
   const starIcons = [];
 
   for (let i = 0; i < fullStars; i++) {
@@ -26,7 +25,7 @@ const RatingStars = ({ rating }) => {
       ></i>
     );
   }
-  console.log(starIcons);
+
   return <div>{starIcons}</div>;
 };
 

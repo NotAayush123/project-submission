@@ -67,8 +67,7 @@ export function PasswordStrength(props) {
         size={4}
       />
     ));
-  console.log(blur);
-  console.log(strength);
+
   props.onValidationChange(blur && strength >= 80, value);
   const passwordBlur = () => {
     setBlur(true);

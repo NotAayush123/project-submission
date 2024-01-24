@@ -6,7 +6,7 @@ import { VolunteeringCard } from "./Card";
 export function PastCarousel({ pastEvents, empty }) {
   const theme = useMantineTheme();
   const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
-
+  console.log(pastEvents);
   const slides = pastEvents.map((item) => (
     <Carousel.Slide key={item.title}>
       <VolunteeringCard {...item} />

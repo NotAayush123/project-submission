@@ -30,10 +30,6 @@ export function EventsList({ value, charities, days }) {
   const nextSaturdayFormatted = getNextDayFormatted(initialDate, 6);
   const nextSundayFormatted = getNextDayFormatted(initialDate, 0);
 
-  console.log("Next Friday:", nextFridayFormatted);
-  console.log("Next Saturday:", nextSaturdayFormatted);
-  console.log("Next Sunday:", nextSundayFormatted);
-
   let data = [
     {
       name: "Volunteer at Interfaith Community Housing Giveaway",
@@ -640,7 +636,6 @@ export function EventsList({ value, charities, days }) {
     }
   }
   if (days) {
-    console.log(days);
     let thurs = days.thursday;
     let fri = days.friday;
     let sat = days.saturday;

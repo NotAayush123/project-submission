@@ -29,8 +29,10 @@ const EventDetail = () => {
   const contactPhone = queryParams.get("contactPhone");
   const contactEmail = queryParams.get("contactEmail");
   const signedParam = queryParams.get("signed");
+  const pastVal = queryParams.get("past");
+  const past = pastVal ? pastVal === "true" : false;
   const signed = signedParam ? signedParam === "true" : false;
-
+  console.log(past);
   const navigate = useNavigate();
   const volunteers = [];
   let index = 1;
@@ -118,34 +120,39 @@ const EventDetail = () => {
         <p>Contact Phone: {contactPhone}</p>
         <p>Contact Email: {contactEmail}</p>
       </Paper>
-      <Paper className={classes.overlay} shadow="xl" withBorder p="lg">
-        {signed ? (
-          <Button className={classes.sign} fullWidth color="gray" disabled>
-            You're already signed up!
-          </Button>
-        ) : (
-          <Button
-            className={classes.sign}
-            color="orange"
-            radius="lg"
-            fullWidth
-            onClick={() => {
-              events.push(event);
-              const newUser = { ...user, signedEvents: events };
-              localStorage.setItem("currentUser", JSON.stringify(newUser));
-              const id = user.id;
-              const users = JSON.parse(localStorage.getItem("users"));
-              const updatedUsersArray = users.map((u) =>
-                u.id === id ? { ...user, signedEvents: events } : u
-              );
-              localStorage.setItem("users", JSON.stringify(updatedUsersArray));
-              navigate("/dashboard");
-            }}
-          >
-            Sign up
-          </Button>
-        )}
-      </Paper>
+      {!past && (
+        <Paper className={classes.overlay} shadow="xl" withBorder p="lg">
+          {signed ? (
+            <Button className={classes.sign} fullWidth color="gray" disabled>
+              You're already signed up!
+            </Button>
+          ) : (
+            <Button
+              className={classes.sign}
+              color="orange"
+              radius="lg"
+              fullWidth
+              onClick={() => {
+                events.push(event);
+                const newUser = { ...user, signedEvents: events };
+                localStorage.setItem("currentUser", JSON.stringify(newUser));
+                const id = user.id;
+                const users = JSON.parse(localStorage.getItem("users"));
+                const updatedUsersArray = users.map((u) =>
+                  u.id === id ? { ...user, signedEvents: events } : u
+                );
+                localStorage.setItem(
+                  "users",
+                  JSON.stringify(updatedUsersArray)
+                );
+                navigate("/dashboard");
+              }}
+            >
+              Sign up
+            </Button>
+          )}
+        </Paper>
+      )}
     </div>
   );
 };

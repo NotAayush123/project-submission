@@ -48,7 +48,7 @@ export default function InputInfoGroup({ label }) {
         const updatedUser = { ...user, email: value };
         setDefaultValue(value);
         localStorage.setItem("currentUser", JSON.stringify(updatedUser));
-        console.log(usersArray);
+
         const updatedUsersArray = usersArray.map((u) =>
           u.id === updatedUser.id ? { ...u, email: value } : u
         );
@@ -60,8 +60,7 @@ export default function InputInfoGroup({ label }) {
       }
     }
   };
-  console.log(isEditing);
-  console.log(value);
+
   return (
     <>
       {error && (

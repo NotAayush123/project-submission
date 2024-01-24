@@ -33,9 +33,7 @@ export default function LoginForm() {
   const passwordChange = (event) => {
     setPasswordValue(event.target.value);
   };
-  console.log(passwordIsValid);
-  console.log(passwordValue);
-  console.log(emailIsValid);
+
   const formIsValid = passwordIsValid && emailIsValid;
   const formSumbit = (event) => {
     event.preventDefault();

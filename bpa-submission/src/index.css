@@ -80,3 +80,9 @@ html {
 .m-8fb7ebe7 {
   font-family: "Poppins" !important;
 }
+
+@media (max-width: 450px) {
+  .DashboardNavbar_navbar__fdiss {
+    z-index: 999 !important;
+  }
+}

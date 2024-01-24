@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import { Tooltip, UnstyledButton, Stack, rem, Avatar } from "@mantine/core";
+import {
+  Tooltip,
+  UnstyledButton,
+  Stack,
+  rem,
+  Avatar,
+  useMantineTheme,
+} from "@mantine/core";
 import {
   IconHome2,
   IconCalendarStats,
@@ -8,7 +15,8 @@ import {
 } from "@tabler/icons-react";
 import classes from "./DashboardNavbar.module.css";
 import { Outlet, useNavigate } from "react-router-dom";
-
+import { useMediaQuery } from "@mantine/hooks";
+import { Button } from "react-bootstrap";
 function NavbarLink({
   icon: Icon,
   label,
@@ -20,6 +28,7 @@ function NavbarLink({
 }) {
   const user = JSON.parse(localStorage.getItem("currentUser"));
   const navigate = useNavigate();
+
   return (
     <Tooltip
       label={label}
@@ -72,7 +81,20 @@ export default function DashboardNavbar() {
   ));
   const navigate = useNavigate();
   const signedIn = localStorage.getItem("signedIn");
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
+  const [showSidebar, setShowSidebar] = useState(false);
 
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  const closeSidebar = () => {
+    setShowSidebar(false);
+  };
+  useEffect(() => {
+    setShowSidebar(false);
+  }, []);
   useEffect(() => {
     if (!signedIn) {
       console.log("User not signed in, redirecting to /signup");
@@ -81,24 +103,71 @@ export default function DashboardNavbar() {
   }, [signedIn, navigate]);
   if (signedIn) {
     return (
-      <div className={classes.content}>
-        <div className={classes.navbarContainer}>
-          <nav className={classes.navbar}>
-            <div className={classes.navbarMain}>
-              <Stack justify="center" gap={0}>
-                {links}
-              </Stack>
-            </div>
+      <>
+        {!mobile ? (
+          <div className={classes.content}>
+            <div className={classes.navbarContainer}>
+              <nav className={classes.navbar}>
+                <div className={classes.navbarMain}>
+                  <Stack justify="center" gap={0}>
+                    {links}
+                  </Stack>
+                </div>
 
-            <Stack justify="center" gap={0}>
-              <NavbarLink icon={IconLogout} label="Logout" logout={true} />
-            </Stack>
-          </nav>
-        </div>
-        <div className={classes.outletcontent}>
-          <Outlet />
-        </div>
-      </div>
+                <Stack justify="center" gap={0}>
+                  <NavbarLink icon={IconLogout} label="Logout" logout={true} />
+                </Stack>
+              </nav>
+            </div>
+            <div className={classes.outletcontent}>
+              <Outlet />
+            </div>
+          </div>
+        ) : (
+          <div
+            className={`${classes.menuButton} ${
+              showSidebar ? classes.active : ""
+            }`}
+          >
+            <Button
+              className={`btn-light ${classes["orange-button"]}`}
+              onClick={toggleSidebar}
+            >
+              <i className="fa-solid fa-bars" style={{ color: "#ffa238" }}></i>
+            </Button>
+            {showSidebar && (
+              <div style={{ zIndex: "999999 !important" }}>
+                <div className={classes.content}>
+                  <div className={classes.navbarContainer}>
+                    <nav className={classes.navbar}>
+                      <div className={classes.navbarMain}>
+                        <span className={classes.close} onClick={closeSidebar}>
+                          &times;
+                        </span>
+                        <Stack justify="center" gap={0}>
+                          {links}
+                        </Stack>
+                      </div>
+
+                      <Stack justify="center" gap={0}>
+                        <NavbarLink
+                          icon={IconLogout}
+                          label="Logout"
+                          logout={true}
+                        />
+                      </Stack>
+                    </nav>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className={classes.outletcontent}>
+              <Outlet />
+            </div>
+          </div>
+        )}
+      </>
     );
   }
 }

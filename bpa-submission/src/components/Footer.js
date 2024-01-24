@@ -10,7 +10,6 @@ import classes from "./Footer.module.css";
 const links = [
   { link: "/privacy", label: "Privacy" },
   { link: "/about", label: "About Us" },
-  { link: "#", label: "TOS and Rules" },
 ];
 
 export function Footer() {

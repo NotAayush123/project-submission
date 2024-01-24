@@ -30,7 +30,6 @@ const Settings = () => {
               setProfile(false);
             }}
             onSave={(content) => {
-              console.log(content);
               const newUser = { ...user, description: content };
               localStorage.setItem("currentUser", JSON.stringify(newUser));
               const id = user.id;

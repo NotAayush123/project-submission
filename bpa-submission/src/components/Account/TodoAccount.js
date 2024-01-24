@@ -3,9 +3,8 @@ import classes from "./TodoAccount.module.css";
 import { Checkbox } from "@mantine/core";
 const TodoAccount = () => {
   const removeItem = (taskRemove) => {
-    console.log(taskRemove);
     const newArray = data.filter((task) => task.task !== taskRemove);
-    console.log(newArray);
+
     localStorage.setItem("tasks", JSON.stringify(newArray));
     window.location.reload();
   };

@@ -3,7 +3,7 @@ import styles from "./Input.module.css";
 
 const Input = (props) => {
   const signup = props.mode === "Signup";
-  console.log(signup);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.inputData}>

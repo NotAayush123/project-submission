@@ -12,8 +12,9 @@ import {
 import classes from "./Card.module.css";
 import { useNavigate } from "react-router-dom";
 
-export function VolunteeringCard(item, volunteer) {
-  const avatars = item.volunteers.map((volunteer) => {
+export function VolunteeringCard(item) {
+  console.log(item.past);
+  let avatars = item.volunteers.map((volunteer) => {
     return (
       <>
         <Tooltip label={volunteer.name} withArrow>
@@ -22,6 +23,7 @@ export function VolunteeringCard(item, volunteer) {
       </>
     );
   });
+
   const navigate = useNavigate();
 
   return (
@@ -59,7 +61,7 @@ export function VolunteeringCard(item, volunteer) {
             color="orange"
             onClick={() => {
               let queryParams = `name=${encodeURIComponent(
-                item.name
+                item.name || item.eventName
               )}&organization=${encodeURIComponent(
                 item.organization
               )}&image=${encodeURIComponent(
@@ -76,6 +78,8 @@ export function VolunteeringCard(item, volunteer) {
                 item.contactPhone
               )}&signed=${encodeURIComponent(
                 item.signed
+              )}&past=${encodeURIComponent(
+                item.past
               )}&contactEmail=${encodeURIComponent(item.contactEmail)}`;
 
               // Add volunteer details to queryParams

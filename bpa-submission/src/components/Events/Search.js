@@ -159,14 +159,14 @@ const Search = ({ onEnter, onFilter }) => {
                 foodBank,
                 redCross,
               };
-              console.log(charities);
+
               const days = {
                 thursday,
                 friday,
                 saturday,
                 sunday,
               };
-              console.log(days);
+
               onFilter(charities, days);
             }}
           >

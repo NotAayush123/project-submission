@@ -54,7 +54,7 @@ function MainNavbar() {
     localStorage.removeItem("currentUser");
     window.location.reload();
   };
-  console.log(open);
+
   const popover = (
     <Popover id="popover-basic">
       <Popover.Body>

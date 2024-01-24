@@ -21,7 +21,17 @@ const Dashboard = () => {
     }) +
     ", " +
     new Date(user.date).toLocaleDateString("en-US", { weekday: "long" });
-  const pastEvents = user.signedEvents;
+  let pastEvents = user.signedEvents;
+
+  let newEvents = pastEvents.map((item) => {
+    item.volunteers.push({
+      name: user.name,
+      profilePicture: user.profilePicture,
+    });
+    item.past = true;
+    return { ...item };
+  });
+
   const empty = pastEvents.length === 0;
   if (signedIn) {
     return (
@@ -43,7 +53,7 @@ const Dashboard = () => {
               Signed Up Events
             </h4>
           )}
-          <PastCarousel pastEvents={pastEvents} empty={empty} />
+          <PastCarousel pastEvents={newEvents} empty={empty} />
         </div>
       </div>
     );
