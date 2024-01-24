@@ -26,7 +26,7 @@ const Dashboard = () => {
   let newEvents = pastEvents.map((item) => {
     item.volunteers.push({
       name: user.name,
-      profilePicture: user.profilePicture,
+      profilePicture: user.img,
     });
     item.past = true;
     return { ...item };
