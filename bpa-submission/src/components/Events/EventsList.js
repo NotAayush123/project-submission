@@ -358,7 +358,7 @@ export function EventsList({ value, charities, days }) {
       name: "MILFORD Healthy Pantry (Morning)",
       organization: "Food Bank of Delaware",
       image:
-        "https://www.delawareonline.com/gcdn/authoring/authoring-images/2023/11/10/PWIL/71537486007-p-01-food-bank-20231110.jpg?crop=3399,1912,x0,y177&width=1280&height=720&format=pjpg&auto=webp",
+        "https://upload.wikimedia.org/wikipedia/commons/f/fd/Ellis_loads_food_from_the_Houston_Food_Bank_during_a_giveaway_for_people_suffering_during_the_COVID_19_pandemic.jpg",
       maxSpots: 6,
       address: "102 Delaware Veterans Boulevard, Milford, DE, USA",
       time: "8:45 AM - 12 PM",
