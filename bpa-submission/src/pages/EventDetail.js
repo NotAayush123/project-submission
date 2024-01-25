@@ -139,7 +139,7 @@ const EventDetail = () => {
                 const id = user.id;
                 const users = JSON.parse(localStorage.getItem("users"));
                 const updatedUsersArray = users.map((u) =>
-                  u.id === id ? { ...user, signedEvents: events } : u
+                  u.id === id ? { ...u, signedEvents: events } : u
                 );
                 localStorage.setItem(
                   "users",
