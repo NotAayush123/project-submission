@@ -20,7 +20,8 @@ const Reminder = () => {
             <i class="fa-solid fa-cookie" style={{ color: "#854d0e" }}></i>
           </h3>
           Hello volunteer! By continuing to use this website and by signing in,
-          you accept our use of cookies and local storage.
+          you accept our use of cookies and local storage. You also accept our{" "}
+          <a href="/privacy">Privacy Policy</a>
           <button className={classes.button} onClick={confirmation}>
             Ok!
           </button>
