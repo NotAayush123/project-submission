@@ -141,6 +141,7 @@ const EventDetail = () => {
                 const updatedUsersArray = users.map((u) =>
                   u.id === id ? { ...u, signedEvents: events } : u
                 );
+                console.log(users);
                 localStorage.setItem(
                   "users",
                   JSON.stringify(updatedUsersArray)
