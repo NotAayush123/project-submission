@@ -70,7 +70,9 @@ export function VolunteeringCard(item) {
                 item.maxSpots
               )}&address=${encodeURIComponent(
                 item.address
-              )}&time=${encodeURIComponent(item.time)}&day=${encodeURIComponent(
+              )}&time=${encodeURIComponent(item.time)}&map=${encodeURIComponent(
+                item.map
+              )}&day=${encodeURIComponent(
                 item.day
               )}&usersTask=${encodeURIComponent(
                 item.usersTask

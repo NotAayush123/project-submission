@@ -30,6 +30,7 @@ const EventDetail = () => {
   const contactEmail = queryParams.get("contactEmail");
   const signedParam = queryParams.get("signed");
   const pastVal = queryParams.get("past");
+  const map = queryParams.get("map");
   const past = pastVal ? pastVal === "true" : false;
   const signed = signedParam ? signedParam === "true" : false;
   console.log(past);
@@ -111,6 +112,15 @@ const EventDetail = () => {
       <Paper shadow="xl" withBorder p="xs" className="mt-3">
         <h3>Details</h3>
         <p>Address: {address}</p>
+        <iframe
+          src={map}
+          width="500"
+          height="350"
+          style={{ border: "0px" }}
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
         <p>Time: {time}</p>
         <p>Hosted on: {day}</p>
         <p>{usersTask}</p>

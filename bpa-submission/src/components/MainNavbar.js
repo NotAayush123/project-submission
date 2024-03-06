@@ -12,7 +12,7 @@ import { Outlet, useNavigate } from "react-router-dom";
 import logo from "../assets/volunteering.png";
 import { useLocation } from "react-router-dom";
 import { IconHome2, IconLogout } from "@tabler/icons-react";
-import alanBtn from "@alan-ai/alan-sdk-web";
+
 function MainNavbar() {
   const [activeLink, setActiveLink] = useState(null);
   const [scrolled, setScrolled] = useState(false);
@@ -49,16 +49,6 @@ function MainNavbar() {
       const localname = JSON.parse(user).name;
       setName(localname);
     }
-  }, []);
-  useEffect(() => {
-    alanBtn({
-      key: process.env.REACT_APP_ALAN_KEY,
-      onCommand: (commandData) => {
-        if (commandData.command === "signup") {
-          console.log("Hi!");
-        }
-      },
-    });
   }, []);
   const logout = () => {
     localStorage.removeItem("signedIn");

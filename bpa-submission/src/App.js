@@ -15,7 +15,8 @@ import Settings from "./pages/Settings";
 import Events from "./components/Events";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import EventDetail from "./pages/EventDetail";
-
+import { useEffect } from "react";
+import alanBtn from "@alan-ai/alan-sdk-web";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -64,6 +65,24 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
+  useEffect(() => {
+    const currentPath = window.location.pathname;
+    if (
+      currentPath === "/" ||
+      currentPath === "/privacy" ||
+      currentPath === "/about"
+    ) {
+      alanBtn({
+        key: process.env.REACT_APP_ALAN_KEY,
+        onCommand: (commandData) => {
+          if (commandData.command === "signup") {
+            console.log("Hi!");
+          }
+        },
+      });
+    }
+  }, []);
+
   return (
     <>
       <MantineProvider inherit theme={{ colorScheme: "light" }}>
