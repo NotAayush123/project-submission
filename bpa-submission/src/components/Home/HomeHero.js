@@ -24,7 +24,7 @@ const HomeHero = () => {
             <Button
               variant="primary"
               className={`${classes.control} px-4 me-md-2`}
-              href="#"
+              href="/signup"
               role="button"
             >
               Get Started

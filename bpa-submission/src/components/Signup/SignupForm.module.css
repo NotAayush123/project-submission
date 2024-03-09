@@ -16,6 +16,11 @@
     align-items: center;
     justify-content: center; /* Center horizontally */
   }
+  .mainAdmin {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center horizontally */
+  }
   .form {
     margin: 0px !important;
     width: 100% !important;
@@ -85,4 +90,36 @@
 }
 .signup:disabled:hover {
   box-shadow: none !important;
+}
+.mainAdmin {
+  overflow-x: hidden;
+  background-image: url("../../assets/bgwithsemicircle2.png");
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.form2 {
+  height: 100vh;
+  margin-right: 20vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (max-width: 1300px) {
+  .form2 {
+    margin-right: 0px;
+  }
+  .select {
+    width: 120% !important;
+  }
+}
+.select {
+  width: 190%;
+}
+@media (max-width: 520px) {
+  .select {
+    width: 70% !important;
+  }
 }

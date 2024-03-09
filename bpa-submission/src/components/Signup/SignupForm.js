@@ -267,7 +267,16 @@ const SignupForm = () => {
                   Go home
                 </a>
               </div>
-
+              <div className={`mb-2 ${classes.linkContainer}`}>
+                <a href="/signupAdmin" className={classes.link}>
+                  Sign up
+                </a>{" "}
+                or{" "}
+                <a href="/loginAdmin" className={classes.link}>
+                  log in
+                </a>{" "}
+                as an <b>admin</b>{" "}
+              </div>
               <Button
                 variant="primary"
                 type="submit"

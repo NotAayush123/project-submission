@@ -15,7 +15,7 @@ const Dashboard = () => {
   }, []);
   const user = JSON.parse(localStorage.getItem("currentUser"));
   const date =
-    new Date(user.date).toLocaleTimeString("en-US", {
+    new Date(user.date).toLocaleString("en-US", {
       hour: "2-digit",
       minute: "2-digit",
     }) +

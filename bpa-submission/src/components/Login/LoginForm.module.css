@@ -46,3 +46,14 @@
   align-items: center;
   justify-content: center;
 }
+.mainAdmin {
+  overflow-x: hidden;
+  background-image: url("../../assets/bgwithsemicircle.png");
+  background-size: cover;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}

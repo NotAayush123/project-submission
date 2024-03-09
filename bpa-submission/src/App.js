@@ -17,6 +17,8 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import EventDetail from "./pages/EventDetail";
 import { useEffect } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
+import AdminSignup from "./pages/AdminSignup";
+import LoginAdmin from "./pages/LoginAdmin";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -44,6 +46,14 @@ const router = createBrowserRouter([
   {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/signupAdmin",
+    element: <AdminSignup />,
+  },
+  {
+    path: "/loginAdmin",
+    element: <LoginAdmin />,
   },
   {
     path: "/dashboard",
