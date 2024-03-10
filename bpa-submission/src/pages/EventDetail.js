@@ -48,6 +48,7 @@ const EventDetail = () => {
     });
     index++;
   }
+
   const event = {
     eventName,
     organization,
@@ -59,6 +60,7 @@ const EventDetail = () => {
     usersTask,
     contactPhone,
     contactEmail,
+    map,
     volunteers,
   };
 

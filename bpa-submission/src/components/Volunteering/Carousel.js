@@ -24,6 +24,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
     )}`;
     return formattedDate;
   }
+
   const nextFridayFormatted = getNextDayFormatted(initialDate, 5);
   const nextSaturdayFormatted = getNextDayFormatted(initialDate, 6);
   const nextSundayFormatted = getNextDayFormatted(initialDate, 0);
@@ -388,7 +389,8 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
       address: "2300 Bowers St, Wilmington, DE 19802",
       map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3067.694369183544!2d-75.53019942351747!3d39.74651569615741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c6e2cad4afb413%3A0x4d65f231b0e74720!2s2300%20Bowers%20St%2C%20Wilmington%2C%20DE%2019802!5e0!3m2!1sen!2sus!4v1709685872779!5m2!1sen!2sus",
 
-      time: "Thu, March 25 at 11 AM - 1 PM",
+      time: "11 AM - 1 PM",
+      day: nextFridayFormatted,
       usersTask:
         "Volunteers will assist in distributing food, loading cars, and interacting with clients.",
       contactPhone: "(302)-292-1305",
@@ -587,7 +589,6 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
     // Find the corresponding object in the first array
     const matchingObj = pastEvents.find((obj1) => obj1.eventName === obj2.name);
 
-    // If a match is found, add the "signed: true" property to the second array object
     if (matchingObj) {
       obj2.signed = true;
       obj2.volunteers.push({ name: username, profilePicture: profile });

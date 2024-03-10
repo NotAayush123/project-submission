@@ -1,12 +1,13 @@
-import { ThemeIcon, Text, Paper, rem } from "@mantine/core";
+import { ThemeIcon, Text, Paper, rem, Button } from "@mantine/core";
 import {
   IconClockHeart,
   IconHeartHandshake,
   IconMail,
 } from "@tabler/icons-react";
 import classes from "./VolunteeringCard.module.css";
-
+import { useNavigate } from "react-router-dom";
 export function VolunteeringCard({ last, email, data }) {
+  const navigate = useNavigate();
   return (
     <Paper radius="md" withBorder className={classes.card} mt={20}>
       {!email ? (
@@ -51,6 +52,18 @@ export function VolunteeringCard({ last, email, data }) {
           <Text ta="center" fz="sm" className="mt-2">
             You will recieve an email at {data.email} whenever we confirm!
           </Text>
+
+          <Button
+            variant="subtle"
+            size="md"
+            className="mt-3"
+            fullWidth
+            onClick={() => {
+              navigate("/");
+            }}
+          >
+            Take me back to home page
+          </Button>
         </>
       )}
     </Paper>

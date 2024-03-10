@@ -5,8 +5,7 @@ import useInput from "../hooks/use-input";
 import InputComponent from "../components/Login/Input";
 import { useEffect, useState } from "react";
 import AlertComponent from "../components/Alert";
-import bcryptjs from "bcryptjs";
-import { useNavigate } from "react-router-dom";
+
 export default function LoginForm() {
   const validateEmail = (value) => {
     return value.trim() !== "" && value.includes("@");
@@ -15,7 +14,7 @@ export default function LoginForm() {
   const [passwordValue, setPasswordValue] = useState("");
   const [error, setError] = useState();
   const [userExists, setUserExists] = useState();
-  const navigate = useNavigate();
+
   useEffect(() => {
     if (passwordValue !== "") {
       setPasswordIsValid(true);

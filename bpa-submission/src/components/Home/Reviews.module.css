@@ -4,7 +4,10 @@
   transform: translateX(200%); /* Start off the screen to the left */
   transition: transform 1s ease; /* Apply a smooth transition effect */
 }
-
+.comment:hover {
+  transform: translateY(-2px);
+  box-shadow: 10px 10px 6px 6px rgba(0, 0, 0, 0.1);
+}
 .body {
   padding-left: rem(54px);
   padding-top: var(--mantine-spacing-sm);

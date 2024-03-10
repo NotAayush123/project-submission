@@ -38,6 +38,15 @@
   transform: translateX(-200%) !important;
   transition: all 1s;
 }
+.mainHeader:hover {
+  color: white !important;
+}
+.mainHeader span {
+  transition: all 1s;
+}
+.mainHeader:hover span {
+  color: black !important;
+}
 .animateHeader {
   transform: translateX(0%) !important;
 }

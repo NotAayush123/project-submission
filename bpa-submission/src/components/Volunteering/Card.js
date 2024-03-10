@@ -14,6 +14,7 @@ import { useNavigate } from "react-router-dom";
 
 export function VolunteeringCard(item) {
   console.log(item.past);
+  console.log(item.signed);
   let avatars = item.volunteers.map((volunteer) => {
     return (
       <>
