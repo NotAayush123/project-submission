@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import classes from "./EventDetail.module.css";
 import {
@@ -14,7 +14,6 @@ const EventDetail = () => {
   const location = useLocation();
   let user = JSON.parse(localStorage.getItem("currentUser"));
   let events = user.signedEvents;
-  // Extract all query parameters from the location object
   const queryParams = new URLSearchParams(location.search);
 
   // Access individual query parameters
@@ -33,7 +32,7 @@ const EventDetail = () => {
   const map = queryParams.get("map");
   const past = pastVal ? pastVal === "true" : false;
   const signed = signedParam ? signedParam === "true" : false;
-  console.log(past);
+
   const navigate = useNavigate();
   const volunteers = [];
   let index = 1;
@@ -84,6 +83,14 @@ const EventDetail = () => {
       </>
     );
   });
+  const [isSignedUp, setIsSignedUp] = useState(false);
+  useEffect(() => {
+    const isAlreadySignedUp = events.some(
+      (event) => event.eventName === eventName
+    );
+    setIsSignedUp(isAlreadySignedUp);
+  }, [location.search]);
+  console.log(isSignedUp);
   return (
     <div>
       <div className={classes.imgContainer}>
@@ -122,6 +129,7 @@ const EventDetail = () => {
           allowfullscreen=""
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
+          title="Map"
         ></iframe>
         <p>Time: {time}</p>
         <p>Hosted on: {day}</p>
@@ -134,7 +142,7 @@ const EventDetail = () => {
       </Paper>
       {!past && (
         <Paper className={classes.overlay} shadow="xl" withBorder p="lg">
-          {signed ? (
+          {signed || isSignedUp ? (
             <Button className={classes.sign} fullWidth color="gray" disabled>
               You're already signed up!
             </Button>

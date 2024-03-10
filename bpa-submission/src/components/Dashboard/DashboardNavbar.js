@@ -71,6 +71,18 @@ const mockdata = [
 export default function DashboardNavbar() {
   const [active, setActive] = useState(1);
 
+  useEffect(() => {
+    const setActivePage = () => {
+      const currentPage = window.location.pathname;
+      const activeIndex = mockdata.findIndex(
+        (item) => item.src === currentPage
+      );
+      setActive(activeIndex !== -1 ? activeIndex : 0);
+    };
+
+    setActivePage();
+  }, []);
+
   const links = mockdata.map((link, index) => (
     <NavbarLink
       {...link}
