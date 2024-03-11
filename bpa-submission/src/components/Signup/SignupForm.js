@@ -96,7 +96,6 @@ const SignupForm = () => {
       );
 
       if (emailExists) {
-        console.log("Email already exists");
         setEmailUsed(true);
         return;
       }
@@ -117,8 +116,7 @@ const SignupForm = () => {
           signedEvents: [],
         },
       ];
-      console.log(hashedPassword);
-      console.log(updatedUsers);
+
       localStorage.setItem("users", JSON.stringify(updatedUsers));
       localStorage.setItem("signedIn", true);
       localStorage.setItem(

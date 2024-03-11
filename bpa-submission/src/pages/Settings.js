@@ -3,11 +3,35 @@ import { Container } from "react-bootstrap";
 import InputInfoGroup from "../components/InputInfoGroup";
 import { DropzoneButton } from "../components/Account/Dropzone";
 import { ProfileDesc } from "../components/Account/ProfileDesc";
-import { Button } from "@mantine/core";
+import { Button, Modal } from "@mantine/core";
+import { useNavigate } from "react-router-dom";
 const Settings = () => {
   const [profile, setProfile] = useState();
+  const [modal, setModal] = useState();
   const user = JSON.parse(localStorage.getItem("currentUser"));
   const description = user.description;
+  const navigate = useNavigate();
+  const handleDeleteAccount = () => {
+    let users = JSON.parse(localStorage.getItem("users"));
+    const currentUserID = user.id;
+
+    const currentUserIndex = users.findIndex((u) => u.id === currentUserID);
+
+    if (currentUserIndex !== -1) {
+      users.splice(currentUserIndex, 1);
+
+      localStorage.setItem("users", JSON.stringify(users));
+
+      localStorage.removeItem("currentUser");
+
+      localStorage.removeItem("signedIn");
+
+      console.log("User has been deleted successfully.");
+      navigate("/");
+    } else {
+      console.log("User not found in the users array.");
+    }
+  };
 
   return (
     <Container className="mb-5">
@@ -53,6 +77,54 @@ const Settings = () => {
           </Button>
         )}
       </div>
+      <div
+        style={{
+          backgroundColor: "red",
+          padding: "15px",
+          borderRadius: "15px",
+        }}
+        className="mt-5"
+      >
+        <h3 style={{ color: "white", textAlign: "center" }}>Danger Zone</h3>
+        <Button
+          className="mt-3"
+          fullWidth
+          color="red"
+          onClick={() => {
+            setModal(true);
+          }}
+        >
+          Delete your account
+        </Button>
+      </div>
+      {modal && (
+        <Modal
+          title="Warning!"
+          opened={modal}
+          onClose={() => {
+            setModal(false);
+          }}
+          size="sm"
+        >
+          <p>This action cannot be undone. Are you sure you want to proceed?</p>
+
+          <Button
+            onClick={() => {
+              setModal(false);
+            }}
+            style={{ marginTop: 15 }}
+          >
+            Cancel
+          </Button>
+          <Button
+            onClick={handleDeleteAccount}
+            color="red"
+            style={{ marginLeft: 10 }}
+          >
+            Delete
+          </Button>
+        </Modal>
+      )}
     </Container>
   );
 };

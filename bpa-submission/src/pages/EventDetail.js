@@ -90,7 +90,7 @@ const EventDetail = () => {
     );
     setIsSignedUp(isAlreadySignedUp);
   }, [location.search]);
-  console.log(isSignedUp);
+
   return (
     <div>
       <div className={classes.imgContainer}>
@@ -161,7 +161,7 @@ const EventDetail = () => {
                 const updatedUsersArray = users.map((u) =>
                   u.id === id ? { ...u, signedEvents: events } : u
                 );
-                console.log(users);
+
                 localStorage.setItem(
                   "users",
                   JSON.stringify(updatedUsersArray)

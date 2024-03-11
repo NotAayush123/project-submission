@@ -597,7 +597,7 @@ export function CardsCarousel({ date, pastEvents, username, profile }) {
 
   return (
     <Carousel
-      slideSize={{ sm: "33%" }}
+      slideSize={{ sm: "33%", xs: "10%" }}
       slideGap={{ base: rem(2), sm: "xl" }}
       align="start"
       slidesToScroll={mobile ? 1 : 2}

@@ -109,7 +109,6 @@ export default function DashboardNavbar() {
   }, []);
   useEffect(() => {
     if (!signedIn) {
-      console.log("User not signed in, redirecting to /signup");
       navigate("/signup");
     }
   }, [signedIn, navigate]);

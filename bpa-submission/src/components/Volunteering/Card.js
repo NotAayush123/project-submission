@@ -7,14 +7,14 @@ import {
   AvatarGroup,
   Avatar,
   Tooltip,
+  useMantineTheme,
 } from "@mantine/core";
 
 import classes from "./Card.module.css";
 import { useNavigate } from "react-router-dom";
+import { useMediaQuery } from "@mantine/hooks";
 
 export function VolunteeringCard(item) {
-  console.log(item.past);
-  console.log(item.signed);
   let avatars = item.volunteers.map((volunteer) => {
     return (
       <>
@@ -26,7 +26,8 @@ export function VolunteeringCard(item) {
   });
 
   const navigate = useNavigate();
-
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   return (
     <Card withBorder radius="md" className={classes.card}>
       <Card.Section className={classes.imageSection}>
@@ -37,9 +38,11 @@ export function VolunteeringCard(item) {
         />
       </Card.Section>
 
-      <Group justify="space-between" mt="md">
+      <Group justify={`${mobile ? "" : "space-between"}`} mt="md">
         <div>
-          <Text fw={500}>{item.name || item.eventName}</Text>
+          <Text fw={500} style={{ width: `${mobile ? "300px" : ""}` }}>
+            {item.name || item.eventName}
+          </Text>
           <Text fz="xs" c="dimmed">
             {item.day} - {item.time}
           </Text>
@@ -49,7 +52,7 @@ export function VolunteeringCard(item) {
       </Group>
 
       <Card.Section className={classes.section}>
-        <Group gap={30}>
+        <Group gap={mobile ? 60 : 30}>
           <div>
             <Text fz="xl" fw={700} style={{ lineHeight: 1 }}>
               {item.volunteers.length}/{item.maxSpots} people
@@ -58,7 +61,7 @@ export function VolunteeringCard(item) {
 
           <Button
             radius="xl"
-            style={{ flex: 1 }}
+            style={{ flex: `${mobile ? 0.5 : 1}` }}
             color="orange"
             onClick={() => {
               let queryParams = `name=${encodeURIComponent(

@@ -3,16 +3,19 @@ import { useNavigate } from "react-router-dom";
 import Loading from "../components/Loading";
 import { CardsCarousel } from "../components/Volunteering/Carousel";
 import { PastCarousel } from "../components/Volunteering/PastCarousel";
+import { useMantineTheme } from "@mantine/core";
+import { useMediaQuery } from "@mantine/hooks";
 const Dashboard = () => {
   const navigate = useNavigate();
   const signedIn = localStorage.getItem("signedIn");
 
   useEffect(() => {
     if (!signedIn) {
-      console.log("User not signed in, redirecting to /signup");
       navigate("/signup");
     }
   }, []);
+  const theme = useMantineTheme();
+  const mobile = useMediaQuery(`(max-width: ${theme.breakpoints.sm})`);
   const user = JSON.parse(localStorage.getItem("currentUser"));
   const date =
     new Date(user.date).toLocaleString("en-US", {
@@ -34,8 +37,12 @@ const Dashboard = () => {
 
   const empty = pastEvents.length === 0;
   if (signedIn) {
+    let style = { marginLeft: "2rem" };
+    if (mobile) {
+      style = { marginLeft: "0px" };
+    }
     return (
-      <div style={{ marginLeft: "2rem" }}>
+      <div style={style}>
         <h1 className="mt-3">Welcome back, {user.name}</h1>
         <h3>It's {date}</h3>
         <div className="mt-5">

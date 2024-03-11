@@ -58,7 +58,7 @@ export default function LoginForm() {
     const foundUser = users.find((user) => {
       return user.email === data.email;
     });
-    console.log(foundUser);
+
     if (!foundUser) {
       setUserExists(true);
     }
@@ -86,7 +86,6 @@ export default function LoginForm() {
           );
           navigate("/dashboard");
         } else {
-          console.log("Login failed");
           setUserExists(true);
         }
       });
