@@ -8,6 +8,7 @@ body {
   --mantine-breakpoint-lg: 75em;
   --mantine-breakpoint-xl: 88em;
   overflow-x: hidden;
+  overflow-y: scroll;
   margin: 0;
   font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
