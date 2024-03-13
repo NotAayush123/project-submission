@@ -60,7 +60,13 @@ const Search = ({ onEnter, onFilter }) => {
           onEnter(value);
         }}
       />
-      <Popover width={400} position="bottom" withArrow shadow="md">
+      <Popover
+        width={400}
+        position="bottom"
+        withArrow
+        shadow="md"
+        zIndex={99999}
+      >
         <Popover.Target>
           <Button className={classes.filter} size="sm">
             <IconFilter />
