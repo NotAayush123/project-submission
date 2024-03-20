@@ -185,7 +185,7 @@ ul {
   transition: transform 0.5s ease;
 }
 
-.card:hover .button:not(:hover) {
+.card:hover {
   transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
 }
 .button:hover {

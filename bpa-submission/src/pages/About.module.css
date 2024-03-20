@@ -85,3 +85,6 @@
     height: 400vh;
   }
 }
+.card:hover {
+  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+}

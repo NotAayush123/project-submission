@@ -19,7 +19,13 @@ export function VolunteeringCard({ last, email, data }) {
   const navigate = useNavigate();
   return (
     <Paper radius="md" withBorder className={classes.card} mt={20}>
-      <Popover width={200} position="bottom" withArrow shadow="md">
+      <Popover
+        width={200}
+        position="bottom"
+        withArrow
+        shadow="md"
+        zIndex={99999999}
+      >
         <Popover.Target>
           <IconInfoCircle
             style={{ position: "absolute", top: "5", right: "10" }}

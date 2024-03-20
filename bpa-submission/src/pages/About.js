@@ -1,9 +1,29 @@
 import { Container, Row, Col } from "react-bootstrap";
 import styles from "./About.module.css";
-import Reliability from "../assets/Reliability.png";
 import Trust from "../assets/Trust.png";
+import Reliability from "../assets/Reliability.png";
+import { useState } from "react"; // Import useState hook
 
 const About = () => {
+  const [tiltAngle, setTiltAngle] = useState({ x: 0, y: 0 });
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const handleMouseMove = (event, index) => {
+    const card = event.currentTarget;
+    const cardBoundingRect = card.getBoundingClientRect();
+    const offsetX = event.clientX - cardBoundingRect.left;
+    const offsetY = event.clientY - cardBoundingRect.top;
+    const tiltX = (offsetY - cardBoundingRect.height / 2) / 20;
+    const tiltY = (cardBoundingRect.width / 2 - offsetX) / 20;
+    setTiltAngle({ x: tiltX, y: tiltY });
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setTiltAngle({ x: 0, y: 0 });
+    setHoveredIndex(null);
+  };
+
   return (
     <div className={styles.aboutContainer}>
       <Container>
@@ -30,8 +50,16 @@ const About = () => {
               className={`d-flex flex-column align-items-center p-2`}
             >
               <div
-                style={{ width: "90%", height: "100%" }}
                 className={styles.card}
+                onMouseMove={(event) => handleMouseMove(event, 0)}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                  transform: `perspective(1000px) rotateX(${
+                    hoveredIndex === 0 ? tiltAngle.x : 0
+                  }deg) rotateY(${hoveredIndex === 0 ? tiltAngle.y : 0}deg)`,
+                  width: "90%",
+                  height: "100%",
+                }}
               >
                 <img
                   src={Trust}
@@ -55,8 +83,16 @@ const About = () => {
               className={`d-flex flex-column align-items-center p-2`}
             >
               <div
-                style={{ width: "90%", height: "100%" }}
                 className={styles.card}
+                onMouseMove={(event) => handleMouseMove(event, 1)}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                  transform: `perspective(1000px) rotateX(${
+                    hoveredIndex === 1 ? tiltAngle.x : 1
+                  }deg) rotateY(${hoveredIndex === 1 ? tiltAngle.y : 1}deg)`,
+                  width: "90%",
+                  height: "100%",
+                }}
               >
                 <img src={Reliability} alt="" className="img-fluid" />
                 <h1 className="text-center">Reliability</h1>
@@ -74,8 +110,16 @@ const About = () => {
               className={`d-flex flex-column align-items-center p-2`}
             >
               <div
-                style={{ width: "90%", height: "100%" }}
                 className={styles.card}
+                onMouseMove={(event) => handleMouseMove(event, 2)}
+                onMouseLeave={handleMouseLeave}
+                style={{
+                  transform: `perspective(1000px) rotateX(${
+                    hoveredIndex === 2 ? tiltAngle.x : 2
+                  }deg) rotateY(${hoveredIndex === 2 ? tiltAngle.y : 2}deg)`,
+                  width: "90%",
+                  height: "100%",
+                }}
               >
                 <img
                   src="https://res.cloudinary.com/zenbusiness/q_auto/v1/shared-assets/icon/product/money-bag-256.svg"

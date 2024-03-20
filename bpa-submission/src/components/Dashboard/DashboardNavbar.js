@@ -33,8 +33,9 @@ function NavbarLink({
     <Tooltip
       label={label}
       position="right"
-      transitionProps={{ duration: 0 }}
-      style={{ zIndex: "999999" }}
+      transitionProps={{ duration: 300 }}
+      className="mx-3"
+      withArrow
     >
       <UnstyledButton
         onClick={() => {
