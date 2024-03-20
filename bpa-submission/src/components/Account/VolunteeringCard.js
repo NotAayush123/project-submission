@@ -1,7 +1,16 @@
-import { ThemeIcon, Text, Paper, rem, Button } from "@mantine/core";
+import {
+  ThemeIcon,
+  Text,
+  Paper,
+  rem,
+  Button,
+  Popover,
+  Anchor,
+} from "@mantine/core";
 import {
   IconClockHeart,
   IconHeartHandshake,
+  IconInfoCircle,
   IconMail,
 } from "@tabler/icons-react";
 import classes from "./VolunteeringCard.module.css";
@@ -10,6 +19,18 @@ export function VolunteeringCard({ last, email, data }) {
   const navigate = useNavigate();
   return (
     <Paper radius="md" withBorder className={classes.card} mt={20}>
+      <Popover width={200} position="bottom" withArrow shadow="md">
+        <Popover.Target>
+          <IconInfoCircle
+            style={{ position: "absolute", top: "5", right: "10" }}
+          />
+        </Popover.Target>
+        <Popover.Dropdown>
+          <Text size="md">Your event must be approved by an admin first!</Text>
+          <Anchor href="/dashboard/events">Take me to some!</Anchor>
+        </Popover.Dropdown>
+      </Popover>
+
       {!email ? (
         <>
           {" "}
@@ -30,7 +51,7 @@ export function VolunteeringCard({ last, email, data }) {
             <h3>{last ? "Your Last Volunteering" : "Your Volunteer Hours"}</h3>
           </Text>
           <Text ta="center" fz="sm">
-            {last ? "was with Charity Crossing!" : "0 hours"}
+            {last ? "wasn't at any organization." : "0 hours"}
           </Text>
         </>
       ) : (

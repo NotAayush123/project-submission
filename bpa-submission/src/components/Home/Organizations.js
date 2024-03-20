@@ -1,6 +1,6 @@
 import { Text, Card, SimpleGrid, Container, Button } from "@mantine/core";
+import { useState } from "react";
 import classes from "./Organizations.module.css";
-import { useEffect, useState } from "react";
 
 const mockdata = [
   {
@@ -27,39 +27,43 @@ const mockdata = [
 ];
 
 export default function Organizations() {
-  const [animate, setAnimate] = useState(false);
+  const [tiltAngle, setTiltAngle] = useState({ x: 0, y: 0 });
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  useEffect(() => {
-    const isElementInViewport = (element) => {
-      const rect = element.getBoundingClientRect();
-      return rect.top <= window.innerHeight && rect.bottom >= 0;
-    };
+  const handleMouseMove = (event, index) => {
+    const card = event.currentTarget;
+    const cardBoundingRect = card.getBoundingClientRect();
+    const offsetX = event.clientX - cardBoundingRect.left;
+    const offsetY = event.clientY - cardBoundingRect.top;
+    const tiltX = (offsetY - cardBoundingRect.height / 2) / 20;
+    const tiltY = (cardBoundingRect.width / 2 - offsetX) / 20;
+    setTiltAngle({ x: tiltX, y: tiltY });
+    setHoveredIndex(index);
+  };
 
-    const missionSection = document.getElementById("organizations");
+  const handleMouseLeave = () => {
+    setTiltAngle({ x: 0, y: 0 });
+    setHoveredIndex(null);
+  };
 
-    const handleScroll = () => {
-      if (isElementInViewport(missionSection)) {
-        setAnimate(true);
-      } else {
-        setAnimate(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-  const features = mockdata.map((feature) => (
+  const features = mockdata.map((feature, index) => (
     <Card
-      key={feature.title}
+      key={index}
       shadow="md"
       radius="md"
-      className={`${classes.card} ${animate ? classes.animateCard : ""}`}
       padding="xl"
+      className={`${classes.card} ${
+        hoveredIndex === index ? classes.hovered : ""
+      }`}
+      onMouseMove={(event) => handleMouseMove(event, index)}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        transform: `perspective(1000px) rotateX(${
+          hoveredIndex === index ? tiltAngle.x : 0
+        }deg) rotateY(${hoveredIndex === index ? tiltAngle.y : 0}deg)`,
+      }}
     >
-      <img src={feature.img} className={classes.img} />
+      <img src={feature.img} className={classes.img} alt={feature.title} />
       <Text
         fz="lg"
         fw={500}
@@ -78,16 +82,16 @@ export default function Organizations() {
         onClick={() => {
           window.open(feature.src, "_blank");
         }}
+        className={classes.button}
       >
         Go to
       </Button>
     </Card>
   ));
+
   return (
     <Container size="xl" py="xl" id="organizations">
-      <h3 className={`${classes.title} ${animate ? `${classes.animate}` : ""}`}>
-        Major Organizations
-      </h3>
+      <h3 className={`${classes.title}`}>Major Organizations</h3>
       <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
         {features}
       </SimpleGrid>
