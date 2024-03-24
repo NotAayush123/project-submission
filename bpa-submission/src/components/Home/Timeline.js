@@ -40,7 +40,7 @@ function TimeEvent() {
       title: "First Founded",
       location: "Middletown, Delaware",
       description:
-        "In August 2016, ServeLink was established with the goal of creating a positive impact on the world. We started our journey by converting data to a graphical interface, using React, Mantine, and so many other frameworks, to enable users to view and interact with data effectively!",
+        "In August 2016, Alcona was established with the goal of creating a positive impact on the world. We started our journey by converting data to a graphical interface, using React, Mantine, and so many other frameworks, to enable users to view and interact with data effectively!",
 
       date: "August 2016 - present",
       icon: "info",

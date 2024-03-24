@@ -1,4 +1,8 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import {
+  RouterProvider,
+  createBrowserRouter,
+  useNavigate,
+} from "react-router-dom";
 import MainNavbar from "./components/MainNavbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home";
@@ -19,6 +23,7 @@ import { useEffect } from "react";
 import alanBtn from "@alan-ai/alan-sdk-web";
 import AdminSignup from "./pages/AdminSignup";
 import LoginAdmin from "./pages/LoginAdmin";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -86,7 +91,21 @@ function App() {
         key: process.env.REACT_APP_ALAN_KEY,
         onCommand: (commandData) => {
           if (commandData.command === "signup") {
-            console.log("Hi!");
+            window.location.href = "/signup";
+          } else if (commandData.command === "login") {
+            window.location.href = "/login";
+          }
+          if (commandData.command === "signupAdmin") {
+            window.location.href = "/signupAdmin";
+          }
+          if (commandData.command === "loginAdmin") {
+            window.location.href = "/loginAdmin";
+          }
+          if (commandData.command === "about") {
+            window.location.href = "/about";
+          }
+          if (commandData.command === "privacy") {
+            window.location.href = "/privacy";
           }
         },
       });

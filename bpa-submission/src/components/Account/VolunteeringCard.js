@@ -19,23 +19,27 @@ export function VolunteeringCard({ last, email, data }) {
   const navigate = useNavigate();
   return (
     <Paper radius="md" withBorder className={classes.card} mt={20}>
-      <Popover
-        width={200}
-        position="bottom"
-        withArrow
-        shadow="md"
-        zIndex={99999999}
-      >
-        <Popover.Target>
-          <IconInfoCircle
-            style={{ position: "absolute", top: "5", right: "10" }}
-          />
-        </Popover.Target>
-        <Popover.Dropdown>
-          <Text size="md">Your event must be approved by an admin first!</Text>
-          <Anchor href="/dashboard/events">Take me to some!</Anchor>
-        </Popover.Dropdown>
-      </Popover>
+      {!email && (
+        <Popover
+          width={200}
+          position="bottom"
+          withArrow
+          shadow="md"
+          zIndex={99999999}
+        >
+          <Popover.Target>
+            <IconInfoCircle
+              style={{ position: "absolute", top: "5", right: "10" }}
+            />
+          </Popover.Target>
+          <Popover.Dropdown>
+            <Text size="md">
+              Your event must be approved by an admin first!
+            </Text>
+            <Anchor href="/dashboard/events">Take me to some!</Anchor>
+          </Popover.Dropdown>
+        </Popover>
+      )}
 
       {!email ? (
         <>

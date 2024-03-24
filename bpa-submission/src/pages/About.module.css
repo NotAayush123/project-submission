@@ -86,5 +86,5 @@
   }
 }
 .card:hover {
-  transform: perspective(1000px) rotateX(5deg) rotateY(5deg);
+  transition: all 0.1s;
 }

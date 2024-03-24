@@ -15,8 +15,8 @@ const HomeHero = () => {
               <span className={classes.highlightTwo}>service</span> hub!
             </h2>
             <p className={`${classes.description}`}>
-              Come find your next volunteering with our easy to use and reliable
-              website!
+              Come find your next volunteering opportunity with our easy to use
+              and reliable website!
             </p>
           </div>
 

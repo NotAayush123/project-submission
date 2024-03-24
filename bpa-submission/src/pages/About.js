@@ -140,12 +140,12 @@ const About = () => {
           <div style={{ textAlign: "center" }}>
             <h1 className="text-white mt-5">Other Info</h1>
             <p style={{ fontSize: "1.2rem" }}>
-              This website was made by Aayush and Laksh, members of MOT K-8 BPA.
-              The theme was a "Community Service Hub", which Alcona strives to
-              be for everyone.
+              This website was made by Aayush Singh and Laksh Patel, members of
+              MOT Charter School K-8 BPA. The theme was a "Community Service
+              Hub", which Alcona strives to be for everyone.
             </p>
             <ul>
-              <li>School - MOT K-8</li>
+              <li>School - MOT Charter K-8</li>
               <li>City - Middletown</li>
               <li> State - Delaware </li>
               <li>Year - 2023 - 2024</li>
